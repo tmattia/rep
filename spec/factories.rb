@@ -5,3 +5,7 @@ Factory.define :user do |u|
   u.email 'user@test.com'
   u.password 'please'
 end
+
+Factory.define :company do |c|
+  c.name 'First Company'
+end
