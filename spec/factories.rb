@@ -8,4 +8,5 @@ end
 
 Factory.define :company do |c|
   c.name 'First Company'
+  c.email 'email@company.com'
 end
