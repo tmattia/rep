@@ -9,6 +9,7 @@ end
 gem 'jquery-rails'
 gem "rspec-rails", ">= 2.6.1", :group => [:development, :test]
 group :test do
+  gem "shoulda-matchers"
   gem "factory_girl_rails", ">= 1.2.0"
   gem "cucumber-rails", ">= 1.1.1"
   gem "capybara", ">= 1.1.1"

@@ -2,63 +2,16 @@ require 'spec_helper'
 
 describe Company do
 
-  it "should be valid from factory" do
-    company = Factory.build(:company)
-    company.should be_valid
-  end
+  subject { Factory(:company) }
 
-  describe "name" do
-    it "should be required" do
-      invalid = Factory.build(:company, :name => nil)
-      invalid.should have(1).error_on(:name)
-      invalid.should_not be_valid
+  it { should validate_presence_of(:name) }
+  it { should validate_uniqueness_of(:name) }
+  it { should ensure_length_of(:name).is_at_most(255) }
 
-      invalid.name = ''
-      invalid.should have(1).error_on(:name)
-      invalid.should_not be_valid
-    end
-
-    it "should not be longer than 255 chars" do
-      long_name = 'a' * 256
-      invalid = Factory.build(:company, :name => long_name)
-      invalid.should have(1).error_on(:name)
-      invalid.should_not be_valid
-    end
-
-    it "should be unique" do
-      valid = Factory.create(:company)
-      valid.should be_valid
-
-      invalid = Factory.build(:company, :name => valid.name)
-      invalid.should have(1).error_on(:name)
-      invalid.should_not be_valid
-    end
-  end
-
-  describe "email" do
-    it "should be required" do
-      invalid = Factory.build(:company)
-      invalid.email = nil
-      invalid.should have(1).error_on(:email)
-      invalid.should_not be_valid
-
-      invalid.email = ''
-      invalid.should have(1).error_on(:email)
-      invalid.should_not be_valid
-    end
-
-    it "should be valid" do
-      invalid = Factory.build(:company, :email => 'invalid@email')
-      invalid.should have(1).error_on(:email)
-      invalid.should_not be_valid
-    end
-
-    it "should not be longer than 255 chars" do
-      long_name = ('a' * 250) + '@email.com'
-      invalid = Factory.build(:company, :email => long_name)
-      invalid.should have(1).error_on(:email)
-      invalid.should_not be_valid
-    end
-  end
+  it { should validate_presence_of(:email) }
+  it { should ensure_length_of(:email).is_at_most(255) }
+  it { should_not allow_value("invalid").for(:email) }
+  it { should_not allow_value("invalid@email").for(:email) }
+  it { should allow_value("example@mail.com").for(:email) }
 
 end
