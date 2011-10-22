@@ -1,21 +1,38 @@
 require 'mail'
+
 class EmailValidator < ActiveModel::EachValidator
-  def validate_each(record,attribute,value)
-    begin
-      m = Mail::Address.new(value)
-      # We must check that value contains a domain and that value is an email address
-      r = m.domain && m.address == value
-      t = m.__send__(:tree)
-      # We need to dig into treetop
-      # A valid domain must have dot_atom_text elements size > 1
-      # user@localhost is excluded
-      # treetop must respond to domain
-      # We exclude valid email values like <user@localhost.com>
-      # Hence we use m.__send__(tree).domain
-      r &&= (t.domain.dot_atom_text.elements.size > 1)
-    rescue Exception => e
-      r = false
+  attr_reader :record, :attribute, :value, :email, :tree
+
+  def validate_each(record, attribute, value)
+    @record, @attribute, @value = record, attribute, value
+
+    @email = Mail::Address.new(value)
+    @tree  = email.__send__(:tree)
+
+    add_error unless valid?
+  rescue Mail::Field::ParseError
+    add_error
+  end
+
+  private
+
+  def valid?
+    !!(domain_and_address_present? && domain_has_more_than_one_atom?)
+  end
+
+  def domain_and_address_present?
+    email.domain && email.address == value
+  end
+
+  def domain_has_more_than_one_atom?
+    tree.domain.dot_atom_text.elements.length > 1
+  end
+
+  def add_error
+    if message = options[:message]
+      record.errors[attribute] << message
+    else
+      record.errors.add(attribute, :invalid)
     end
-    record.errors[attribute] << (options[:message] || "is invalid") unless r
   end
 end
