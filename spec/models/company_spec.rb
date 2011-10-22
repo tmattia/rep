@@ -7,29 +7,58 @@ describe Company do
     company.should be_valid
   end
 
-  it "should have a name" do
-    invalid = Factory.build(:company, :name => nil)
-    invalid.should have(1).error_on(:name)
-    invalid.should_not be_valid
+  describe "name" do
+    it "should be required" do
+      invalid = Factory.build(:company, :name => nil)
+      invalid.should have(1).error_on(:name)
+      invalid.should_not be_valid
+
+      invalid.name = ''
+      invalid.should have(1).error_on(:name)
+      invalid.should_not be_valid
+    end
+
+    it "should not be longer than 255 chars" do
+      long_name = 'a' * 256
+      invalid = Factory.build(:company, :name => long_name)
+      invalid.should have(1).error_on(:name)
+      invalid.should_not be_valid
+    end
+
+    it "should be unique" do
+      valid = Factory.create(:company)
+      valid.should be_valid
+
+      invalid = Factory.build(:company, :name => valid.name)
+      invalid.should have(1).error_on(:name)
+      invalid.should_not be_valid
+    end
   end
 
-  it "should not have a duplicated name" do
-    valid = Factory.create(:company)
-    valid.should be_valid
+  describe "email" do
+    it "should be required" do
+      invalid = Factory.build(:company)
+      invalid.email = nil
+      invalid.should have(1).error_on(:email)
+      invalid.should_not be_valid
 
-    invalid = Factory.build(:company, :name => valid.name)
-    invalid.should have(1).error_on(:name)
-    invalid.should_not be_valid
-  end
+      invalid.email = ''
+      invalid.should have(1).error_on(:email)
+      invalid.should_not be_valid
+    end
 
-  it "should have a valid email" do
-    invalid = Factory.build(:company, :email => nil)
-    invalid.should have(2).error_on(:email)
-    invalid.should_not be_valid
+    it "should be valid" do
+      invalid = Factory.build(:company, :email => 'invalid@email')
+      invalid.should have(1).error_on(:email)
+      invalid.should_not be_valid
+    end
 
-    invalid.email = 'invalid@email'
-    invalid.should have(1).error_on(:email)
-    invalid.should_not be_valid
+    it "should not be longer than 255 chars" do
+      long_name = ('a' * 250) + '@email.com'
+      invalid = Factory.build(:company, :email => long_name)
+      invalid.should have(1).error_on(:email)
+      invalid.should_not be_valid
+    end
   end
 
 end
