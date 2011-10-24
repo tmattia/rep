@@ -17,4 +17,6 @@ group :test do
   gem "launchy", ">= 2.0.5"
 end
 gem "devise", ">= 1.4.7"
-gem "haml-rails", ">= 0.3.4", :group => :development
+gem "haml-rails", ">= 0.3.4", :group => [:development, :test]
+gem "inherited_resources"
+gem "simple_form"

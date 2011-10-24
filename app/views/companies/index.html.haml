@@ -1,0 +1,14 @@
+%h1= t 'label.company.plural'
+
+%table
+  %thead
+    %tr
+      %th= t 'simple_form.labels.name'
+      %th= t 'simple_form.labels.email'
+  %tbody
+  - @companies.each do |company|
+    %tr
+      %td= company.name
+      %td= company.email
+
+= link_to t('label.company.add'), new_company_path
