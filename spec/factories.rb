@@ -8,6 +8,10 @@ Factory.sequence :name do |n|
   "Name ##{n}"
 end
 
+Factory.sequence :code do |n|
+  "CODE#{n}"
+end
+
 Factory.define :company do |c|
   c.name  { Factory.next(:name) }
   c.email { Factory.next(:email) }
@@ -20,4 +24,8 @@ end
 
 Factory.define :client do |f|
   f.corporate_name { Factory.next(:name) }
+end
+
+Factory.define :product do |f|
+  f.code { Factory.next(:code) }
 end
