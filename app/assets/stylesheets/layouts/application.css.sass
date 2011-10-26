@@ -1,0 +1,122 @@
+#auth-bar-bg
+  background-color: #000
+  height: 25px
+
+  #auth-bar
+    text-align: right
+
+    ul
+      margin: 2px 0 0 0
+
+      li
+        display: inline-block
+
+        a
+          color: #aaa
+          font-size: 12px
+          padding: 0 10px
+          border-right: 1px solid #333
+          text-decoration: none
+
+        &:last-child
+          a
+            padding-right: 0
+            border-right: none
+
+#header-bg
+  background-color: #333
+  margin-bottom: 20px
+
+  #search
+    input
+      width: 100%
+      @include box-sizing(border-box)
+
+  header
+    padding-top: 5px
+
+    h1
+      font-size: 24px
+      line-height: 29px
+      color: #fff
+      cursor: pointer
+
+    nav
+      ul
+        margin-bottom: 0
+
+        li
+          margin-bottom: 0
+          display: inline-block
+
+          &:first-child
+            margin-left: 0
+
+          a
+            display: block
+            padding: 5px 8px
+            color: #fff
+            background-color: #666
+            text-decoration: none
+
+            &:hover
+              background-color: #555
+
+            &.current
+              background-color: #fff
+              color: #333
+
+
+input[type=text]
+  width: 100%
+  @include box-sizing(border-box)
+
+table
+  width: 100%
+  @include box-sizing(border-box)
+  margin-bottom: 20px
+
+  tr
+    border-bottom: 1px solid #ddd
+
+    &:nth-child(even)
+      background-color: #f6f6f6
+
+    td:first-child
+      font-weight: bold
+      padding-left: 15px
+
+    td
+      padding: 5px
+
+      &.edit, &.delete
+        width: 65px
+
+        .button
+          margin: 0
+          background-color: #fff
+
+      &.delete
+        .button
+          background-color: #faa
+
+@media screen and (max-width: 767px)
+  #header-bg
+    #search
+      display: none
+
+    header
+      nav
+        display: none
+
+        ul
+          margin-bottom: 10px
+
+          li
+            display: inline-block
+            width: 100%
+            margin-bottom: 2px
+
+  table
+    .extra
+      display: none

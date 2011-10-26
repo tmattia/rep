@@ -1,0 +1,17 @@
+#header-bg
+  .container
+    #header.sixteen.columns.alpha.omega
+      %header
+        .twelve.columns.alpha.omega
+          %h1 Rep
+        #search.four.columns.alpha.omega
+          %form
+            %input{:type => :search, :placeholder => "Busca"}
+        .sixteen.columns.alpha.gama
+          %nav
+            %ul
+              %li= link_to 'Pedidos', '#pedidos'
+              %li= link_to 'Assistências', '#assistencias'
+              %li= link_to 'Clientes', '#clientes'
+              %li= link_to 'Representadas', companies_path
+              %li= link_to 'Produtos', '#produtos'
