@@ -17,3 +17,7 @@ Factory.define :invalid_company, :class => Company do |c|
   c.name  ''
   c.email 'invalid@email'
 end
+
+Factory.define :client do |f|
+  f.corporate_name { Factory.next(:name) }
+end
