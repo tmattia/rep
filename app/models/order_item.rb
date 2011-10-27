@@ -1,7 +1,10 @@
 class OrderItem < ActiveRecord::Base
 
   belongs_to :product
+  validates :product, :presence => true
+
   belongs_to :order
+  validates :order, :presence => true
 
   validates :quantity, :presence => true,
                        :numericality => { :only_integer => true,

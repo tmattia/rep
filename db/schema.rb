@@ -37,10 +37,10 @@ ActiveRecord::Schema.define(:version => 20111026224048) do
   end
 
   create_table "order_items", :force => true do |t|
-    t.integer "order_id"
-    t.integer "product_id"
-    t.integer "quantity"
-    t.float   "unit_price"
+    t.integer "order_id",   :null => false
+    t.integer "product_id", :null => false
+    t.integer "quantity",   :null => false
+    t.float   "unit_price", :null => false
   end
 
   create_table "orders", :force => true do |t|

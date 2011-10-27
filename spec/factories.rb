@@ -29,3 +29,17 @@ end
 Factory.define :product do |f|
   f.code { Factory.next(:code) }
 end
+
+Factory.define :order do |f|
+  f.company { |a| a.association(:company) }
+  f.client  { |a| a.association(:client) }
+
+  f.after_create { |o| Factory(:order_item, :order => o) }
+end
+
+Factory.define :order_item do |f|
+  f.quantity   2
+  f.unit_price 10.0
+  f.order      { |a| a.association(:order) }
+  f.product    { |a| a.association(:product) }
+end

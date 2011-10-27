@@ -1,10 +1,10 @@
 class AddOrderItem < ActiveRecord::Migration
   def change
     create_table :order_items do |t|
-      t.references :order
-      t.references :product
-      t.integer :quantity
-      t.float :unit_price
+      t.references :order, :null => false
+      t.references :product, :null => false
+      t.integer :quantity, :null => false
+      t.float :unit_price, :null => false
     end
   end
 end
