@@ -81,9 +81,21 @@
     background-color: #fee
     color: #600
 
-input[type=text]
-  width: 100%
-  @include box-sizing(border-box)
+
+.field_with_errors
+  color: #600
+
+  input
+    border-color: #900
+    float: left
+
+  span
+    display: inline-block
+    margin: 4px 0 0 5px
+
+.input, input.button
+  display: block
+  clear: both
 
 table
   width: 100%
