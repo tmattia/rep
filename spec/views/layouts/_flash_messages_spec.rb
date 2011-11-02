@@ -7,7 +7,10 @@ describe 'layouts/_flash_messages.html.haml' do
   context 'when an alert message exists' do
     before do
       flash[:alert] = alert_message
+      render
     end
+
+    subject { rendered }
 
     it { should include(alert_message) }
     it { should_not include(notice_message) }
@@ -16,7 +19,10 @@ describe 'layouts/_flash_messages.html.haml' do
   context 'when a notice message exists' do
     before do
       flash[:notice] = notice_message
+      render
     end
+
+    subject { rendered }
 
     it { should include(notice_message) }
     it { should_not include(alert_message) }
