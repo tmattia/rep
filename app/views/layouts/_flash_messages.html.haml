@@ -1,4 +1,6 @@
-- if flash[:notice]
-  #flash.success= flash[:notice]
-- elsif flash[:alert]
-  #flash.error= flash[:alert]
+.container
+  .sixteen.columns.alpha.omega
+    - if flash[:notice]
+      #flash.success= flash[:notice]
+    - elsif flash[:alert]
+      #flash.error= flash[:alert]
