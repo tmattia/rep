@@ -1,11 +1,11 @@
 # language: pt
 
-Funcionalidade: Cadastrar Representada
+Funcionalidade: Editar Representada
   Como Secretária
-  Eu quero cadastrar uma representada
+  Eu quero editar uma representada
 
   Contexto:
-    Dado que eu estou na página de adicionar representada
+    Dado que eu estou na página de editar representada
 
     Cenário: Sucesso
       Quando eu preencher o formulário com dados válidos

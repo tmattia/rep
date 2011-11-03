@@ -2,9 +2,17 @@
 # pt-BR translations for Ruby on Rails
 "pt-BR":
   label:
+    search: Buscar
+    show: Ver
+    edit: Editar
+    delete: Excluir
+    confirm_delete: "Tem certeza de que deseja excluir este item?"
+    no_records: "Nenhum(a) %{model} cadastrado(a)."
+
     company:
       plural: Representadas
       add: Adicionar Representada
+      edit: Editar Representada
 
   simple_form:
     labels:
@@ -18,6 +26,7 @@
         alert: "Ocorreu um erro ao cadastrar %{resource_name}. Por favor, verifique se você preencheu todos os campos corretamente."
       update:
         notice: "%{resource_name} editado(a) com sucesso."
+        alert: "Ocorreu um erro ao editar %{resource_name}. Por favor, verifique se você preencheu todos os campos corretamente."
       destroy:
         notice: "%{resource_name} excluído(a) com sucesso."
         alert: "Não foi possível excluir %{resource_name}."

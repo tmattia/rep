@@ -1,14 +1,13 @@
-%h1= t 'label.company.plural'
+.ten.columns.alpha.gama
+  %h1= t 'label.company.plural'
 
-%table
-  %thead
-    %tr
-      %th= t 'simple_form.labels.name'
-      %th= t 'simple_form.labels.email'
-  %tbody
-  - @companies.each do |company|
-    %tr
-      %td= company.name
-      %td= company.email
+  - if @companies.length > 0
+    %ul.companies
+      - @companies.each do |company|
+        %li= link_to company.name, company
+  - else
+    %p= t 'label.no_records', :model => t('activerecord.models.company')
 
-= link_to t('label.company.add'), new_company_path
+.six.columns.alpha.omega
+  = link_to t('label.company.add'), new_company_path
+

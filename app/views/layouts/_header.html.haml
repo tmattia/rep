@@ -6,8 +6,8 @@
           %h1 Rep
         #search.four.columns.alpha.omega
           %form
-            %input{:type => :search, :placeholder => "Busca"}
+            %input{:type => :search, :placeholder => t('label.search')}
         .sixteen.columns.alpha.gama
           %nav
             %ul
-              %li= link_to_current 'Representadas', companies_path
+              %li= link_to_current t('label.company.plural'), companies_path

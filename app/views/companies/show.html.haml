@@ -1,4 +1,8 @@
-%h1= @company.name
-%dl
-  %dt= t 'label.email'
-  %dd= @company.email
+.ten.columns.alpha.omega
+  %h1= @company.name
+  %dl.company
+    %dt= t 'label.email'
+    %dd= @company.email
+
+.six.columns.alpha.omega
+  = link_to t('label.company.edit'), edit_company_path(@company)
