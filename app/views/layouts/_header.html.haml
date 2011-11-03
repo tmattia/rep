@@ -10,8 +10,4 @@
         .sixteen.columns.alpha.gama
           %nav
             %ul
-              %li= link_to 'Pedidos', '#pedidos'
-              %li= link_to 'Assistências', '#assistencias'
-              %li= link_to 'Clientes', '#clientes'
-              %li= link_to 'Representadas', companies_path
-              %li= link_to 'Produtos', '#produtos'
+              %li= link_to_current 'Representadas', companies_path
