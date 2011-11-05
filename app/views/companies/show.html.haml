@@ -8,5 +8,45 @@
 
     %table.company
       %tr
-        %th= t 'label.email'
+        %th= t 'simple_form.labels.company_name'
+        %td= @company.company_name
+      %tr
+        %th= t 'simple_form.labels.cnpj'
+        %td= @company.cnpj
+
+    %table.company
+      %tr
+        %th= t 'simple_form.labels.email'
         %td= @company.email
+      %tr
+        %th= t 'simple_form.labels.phone'
+        %td= @company.phone
+      %tr
+        %th= t 'simple_form.labels.fax'
+        %td= @company.fax
+      %tr
+        %th= t 'simple_form.labels.msn'
+        %td= @company.msn
+      %tr
+        %th= t 'simple_form.labels.skype'
+        %td= @company.skype
+
+    %table.company
+      %tr
+        %th= t 'simple_form.labels.street'
+        %td= @company.street
+      %tr
+        %th= t 'simple_form.labels.zip_code'
+        %td= @company.zip_code
+      %tr
+        %th= t 'simple_form.labels.city'
+        %td= @company.city
+      %tr
+        %th= t 'simple_form.labels.state'
+        %td= @company.state
+      %tr
+        %th= t 'simple_form.labels.company_name'
+        %td= @company.company_name
+      %tr
+        %th= t 'simple_form.labels.cnpj'
+        %td= @company.cnpj

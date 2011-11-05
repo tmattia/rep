@@ -9,6 +9,16 @@
       mark: '*'
 
     labels:
-      name: 'Nome'
+      city: 'Cidade'
+      cnpj: 'CNPJ'
+      company_name: 'Razão Social'
       email: 'Email'
+      fax: 'Fax'
+      msn: 'MSN'
+      name: 'Nome'
       password: 'Senha'
+      phone: 'Telefone'
+      skype: 'Skype'
+      state: 'Estado'
+      street: 'Endereço'
+      zip_code: 'CEP'
