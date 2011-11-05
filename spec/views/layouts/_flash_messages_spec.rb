@@ -29,4 +29,3 @@ describe 'layouts/_flash_messages.html.haml' do
   end
 
 end
-

@@ -3,21 +3,18 @@
 "pt-BR":
   label:
     search: Buscar
+    add: Adicionar
     show: Ver
     edit: Editar
     delete: Excluir
     confirm_delete: "Tem certeza de que deseja excluir este item?"
     no_records: "Nenhum(a) %{model} cadastrado(a)."
+    record_data: "Dados Cadastrais"
 
     company:
       plural: Representadas
       add: Adicionar Representada
       edit: Editar Representada
-
-  simple_form:
-    labels:
-      name: Nome
-      email: Email
 
   flash:
     actions:
@@ -218,9 +215,9 @@
       prompt: "Por favor selecione"
 
     submit:
-      create: 'Adicionar %{model}'
-      update: 'Editar %{model}'
-      submit: 'Salvar %{model}'
+      create: 'Salvar'
+      update: 'Salvar'
+      submit: 'Salvar'
 
   errors:
     format: "%{attribute} %{message}"

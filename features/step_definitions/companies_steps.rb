@@ -42,7 +42,7 @@ Então /^eu devo ver a representada$/ do
 end
 
 Então /^eu devo ver os dados da representada$/ do
-  page.should have_selector('dl.company')
+  page.should have_selector('table.company')
 end
 
 Então /^eu devo ver os campos que contêm erros$/ do
@@ -51,5 +51,5 @@ Então /^eu devo ver os campos que contêm erros$/ do
 end
 
 Então /^eu devo ver a lista das representadas cadastradas$/ do
-  page.should have_selector('ul.companies')
+  page.should have_selector('table.companies')
 end

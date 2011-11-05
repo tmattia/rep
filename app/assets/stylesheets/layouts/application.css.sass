@@ -1,6 +1,16 @@
+body
+  background-image: url(image_path('bg.jpg'))
+
 #auth-bar-bg
   background-color: #000
-  height: 25px
+
+  h1
+    color: #fff
+    font-size: 16px
+    line-height: 16px
+    padding-top: 7px
+    font-weight: bold
+    margin-bottom: 10px
 
   #auth-bar
     text-align: right
@@ -26,21 +36,17 @@
 #header-bg
   background-color: #333
   margin-bottom: 20px
+  padding-top: 10px
 
   #search
+    text-align: right
+
     input
       width: 100%
       @include box-sizing(border-box)
+      margin-bottom: 0
 
   header
-    padding-top: 5px
-
-    h1
-      font-size: 24px
-      line-height: 29px
-      color: #fff
-      cursor: pointer
-
     nav
       ul
         margin-bottom: 0
@@ -54,22 +60,25 @@
 
           a
             display: block
-            padding: 5px 8px
+            font-size: 14px
+            padding: 2px 8px
             color: #fff
             background-color: #666
             text-decoration: none
+            @include border-radius(3px 3px 0 0)
 
             &:hover
               background-color: #555
 
             &.current
-              background-color: #fff
+              background-image: url(image_path('bg.jpg'))
               color: #333
 
 #flash
   margin: 5px 0 20px 0
   padding: 10px
-  @include border-radius(5px)
+  text-align: center
+  @include border-radius(3px)
 
   &.success
     border: 1px solid #090
@@ -77,16 +86,17 @@
     color: #060
 
   &.error
-    border: 1px solid #900
+    border: 1px solid #b00
     background-color: #fee
-    color: #600
-
+    color: #900
 
 .field_with_errors
-  color: #600
+  margin-bottom: 20px
+  color: #900
 
   input
-    border-color: #900
+    margin-bottom: 0
+    border-color: #b00
     float: left
 
   span
@@ -99,50 +109,116 @@
 
 table
   width: 100%
-  @include box-sizing(border-box)
   margin-bottom: 20px
+  background-color: #fff
+  border: 1px solid #ccc
+  border-collapse: separate
+  @include border-radius(3px)
+  @include box-sizing(border-box)
 
   tr
-    border-bottom: 1px solid #ddd
+    td, th
+      border-bottom: 1px solid #ccc
+      padding: 9px
 
-    &:nth-child(even)
-      background-color: #f6f6f6
+      a
+        color: #333
+        font-weight: bold
+        text-decoration: none
+        display: block
+        background: url(image_path('arrow-right.png')) no-repeat right center
 
-    td:first-child
+        &:hover
+          color: #000
+
+        &:active
+          color: #38f
+
+    td:first-child, th
       font-weight: bold
-      padding-left: 15px
+      padding-left: 10px
+      text-align: left
 
-    td
+    &:last-child
+      td, th
+        border-bottom: none
+
+#main
+  article
+    header
+      text-align: right
+      h2, h3, h4
+        float: left
+        text-align: left
+      & + *
+        clear: both
+
+  ul
+    @include border-radius(3px)
+    border: 1px solid #ccc
+    background-color: #fff
+
+    li
+      border-bottom: 1px solid #ccc
+
+      &:first-child
+        &:hover, a
+          @include border-radius(3px 3px 0 0)
+
+      &:last-child
+        border: none
+
+        &:hover, a
+          @include border-radius(0 0 3px 3px)
+
+
+  dl
+    margin-bottom: 20px
+    border: 1px solid #ccc
+    background-color: #fff
+    @include border-radius(3px)
+
+    dt
+      font-weight: bold
+      float: left
+      width: 150px
+      padding: 5px 0 5px 10px
+    dd
+      border-bottom: 1px solid #ccc
       padding: 5px
 
-      &.edit, &.delete
-        width: 65px
+      &:last-child
+        border: none
 
-        .button
-          margin: 0
-          background-color: #fff
 
-      &.delete
-        .button
-          background-color: #faa
 
 @media screen and (max-width: 767px)
-  #header-bg
-    #search
+  #auth-bar
+    ul
       display: none
 
+  #header-bg
+    display: none
     header
       nav
-        display: none
-
         ul
-          margin-bottom: 10px
+          margin: 15px 0
 
           li
             display: inline-block
             width: 100%
             margin-bottom: 2px
 
+  #content
+    margin-top: 10px
+
+  #main
+    dl
+      dt
+        width: 110px
+
   table
     .extra
       display: none
+
+@media screen and (max-width: 479px)

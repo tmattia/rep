@@ -1,0 +1,14 @@
+# encoding: UTF-8
+
+"pt-BR":
+  simple_form:
+    "yes": 'Sim'
+    "no": 'Não'
+    required:
+      text: 'obrigatório'
+      mark: '*'
+
+    labels:
+      name: 'Nome'
+      email: 'Email'
+      password: 'Senha'

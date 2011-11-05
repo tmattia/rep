@@ -21,7 +21,7 @@ describe 'companies/index.html.haml' do
 
     subject { rendered }
 
-    it { should have_css('ul.companies') }
+    it { should have_css('table.companies') }
     it {
       should_not include(t('label.no_records',
                            :model => t('activerecord.models.company')))

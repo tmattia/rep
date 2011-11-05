@@ -1,13 +1,13 @@
-.ten.columns.alpha.gama
-  %h1= t 'label.company.plural'
+#main.ten.columns
+  %article
+    %header
+      %h2= t 'label.company.plural'
+      = link_to t('label.add'), new_company_path, :class => 'button-pill'
 
-  - if @companies.length > 0
-    %ul.companies
-      - @companies.each do |company|
-        %li= link_to company.name, company
-  - else
-    %p= t 'label.no_records', :model => t('activerecord.models.company')
-
-.six.columns.alpha.omega
-  = link_to t('label.company.add'), new_company_path
-
+    - if @companies.length > 0
+      %table.companies
+        - @companies.each do |company|
+          %tr
+            %td= link_to company.name, company
+    - else
+      %p= t 'label.no_records', :model => t('activerecord.models.company')

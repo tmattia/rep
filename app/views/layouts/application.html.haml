@@ -5,6 +5,7 @@
     = stylesheet_link_tag "application"
     = javascript_include_tag "application"
     = csrf_meta_tags
+    %meta{:name => 'viewport', :content => 'width=device-width, initial-scale=1, maximum-scale=1'}
 
   %body
     = render 'layouts/auth_bar'
@@ -14,4 +15,4 @@
     #content-bg
       .container
         #content.sixteen.columns.alpha.omega
-          =yield
+          = yield
