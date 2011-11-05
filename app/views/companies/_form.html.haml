@@ -10,5 +10,5 @@
   = f.input :street
   = f.input :zip_code
   = f.input :city
-  = f.input :state
+  = f.input :state, :collection => states_collection, :prompt => t('label.select')
   = f.button :submit

@@ -13,4 +13,8 @@ module ApplicationHelper
     end
   end
 
+  def states_collection
+    I18n.t('states_collection').invert.to_a
+  end
+
 end
