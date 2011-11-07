@@ -8,12 +8,12 @@ Funcionalidade: Cadastrar Representada
     Dado que eu estou na página de adicionar representada
 
     Cenário: Sucesso
-      Quando eu preencher o formulário com dados válidos
+      Quando eu preencher o formulário da representada com dados válidos
       Então eu devo ver uma mensagem de sucesso
       E eu devo ver a representada
 
     Cenário: Dados inválidos
-      Quando eu preencher o formulário com dados inválidos
+      Quando eu preencher o formulário da representada com dados inválidos
       Então eu devo ver uma mensagem de erro
       E eu devo ver os campos que contêm erros
 

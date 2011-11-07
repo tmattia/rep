@@ -22,12 +22,12 @@ Quando /^eu estou na página de listar representadas$/ do
   visit(companies_path)
 end
 
-Quando /^eu preencher o formulário com dados válidos$/ do
+Quando /^eu preencher o formulário da representada com dados válidos$/ do
   new_company = Factory.build(:company)
   fill_and_submit_company_form_with(new_company)
 end
 
-Quando /^eu preencher o formulário com dados inválidos$/ do
+Quando /^eu preencher o formulário da representada com dados inválidos$/ do
   invalid_company = Factory.build(:invalid_company)
   fill_and_submit_company_form_with(invalid_company)
 end
@@ -43,11 +43,6 @@ end
 
 Então /^eu devo ver os dados da representada$/ do
   page.should have_selector('table.company')
-end
-
-Então /^eu devo ver os campos que contêm erros$/ do
-  page.should have_selector('.field_with_errors #company_name')
-  page.should have_selector('.field_with_errors #company_email')
 end
 
 Então /^eu devo ver a lista das representadas cadastradas$/ do
