@@ -14,7 +14,8 @@
 ActiveRecord::Schema.define(:version => 20111026224048) do
 
   create_table "clients", :force => true do |t|
-    t.string   "corporate_name"
+    t.string   "company_name"
+    t.string   "cnpj"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

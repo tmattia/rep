@@ -12,6 +12,10 @@ Factory.sequence :code do |n|
   "CODE#{n}"
 end
 
+Factory.sequence :cnpj do |n|
+  "1122233344445#{n}"
+end
+
 Factory.define :company do |c|
   c.name  { Factory.next(:name) }
   c.email { Factory.next(:email) }
@@ -23,7 +27,8 @@ Factory.define :invalid_company, :class => Company do |c|
 end
 
 Factory.define :client do |f|
-  f.corporate_name { Factory.next(:name) }
+  f.company_name { Factory.next(:name) }
+  f.cnpj { Factory.next(:cnpj) }
 end
 
 Factory.define :product do |f|
