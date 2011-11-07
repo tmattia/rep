@@ -8,6 +8,6 @@
       %table.clients
         - @clients.each do |client|
           %tr
-            %td= link_to client.company_name, client
+            %td= link_to client.name.blank? ? client.company_name : client.name, client
     - else
       %p= t 'label.no_records', :model => t('activerecord.models.client')
