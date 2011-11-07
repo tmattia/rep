@@ -116,6 +116,10 @@ table
   @include border-radius(3px)
   @include box-sizing(border-box)
 
+  tbody th
+    width: 140px
+
+
   tr
     td, th
       border-bottom: 1px solid #ccc
@@ -172,26 +176,6 @@ table
           @include border-radius(0 0 3px 3px)
 
 
-  dl
-    margin-bottom: 20px
-    border: 1px solid #ccc
-    background-color: #fff
-    @include border-radius(3px)
-
-    dt
-      font-weight: bold
-      float: left
-      width: 150px
-      padding: 5px 0 5px 10px
-    dd
-      border-bottom: 1px solid #ccc
-      padding: 5px
-
-      &:last-child
-        border: none
-
-
-
 @media screen and (max-width: 767px)
   #auth-bar
     ul
@@ -212,13 +196,16 @@ table
   #content
     margin-top: 10px
 
-  #main
-    dl
-      dt
-        width: 110px
-
   table
+    tbody
+      th
+        width: 110px
     .extra
       display: none
 
 @media screen and (max-width: 479px)
+  table
+    tbody
+      th
+        overflow: hidden
+        width: 90px
