@@ -2,25 +2,25 @@
 # pt-BR translations for Ruby on Rails
 "pt-BR":
   label:
-    search: Buscar
     add: Adicionar
-    show: Ver
-    edit: Editar
-    delete: Excluir
     confirm_delete: "Tem certeza de que deseja excluir este item?"
+    delete: Excluir
+    edit: Editar
     no_records: "Nenhum(a) %{model} cadastrado(a)."
     record_data: "Dados Cadastrais"
+    search: Buscar
     select: 'Selecione...'
-
-    company:
-      plural: Representadas
-      add: Adicionar Representada
-      edit: Editar Representada
+    show: Ver
 
     client:
       plural: Clientes
       add: Adicionar Cliente
       edit: Editar Cliente
+
+    company:
+      plural: Representadas
+      add: Adicionar Representada
+      edit: Editar Representada
 
 
   flash:
@@ -273,5 +273,5 @@
         format: "%{attribute} %{message}"
 
     models:
-      company: Representada
       client: Cliente
+      company: Representada
