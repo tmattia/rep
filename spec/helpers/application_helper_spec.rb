@@ -47,24 +47,4 @@ describe ApplicationHelper do
     end
   end
 
-  describe 'states_collection' do
-    before do
-      @collection = helper.states_collection
-    end
-
-    it 'should return an array' do
-      @collection.should be_a_kind_of(Array)
-    end
-
-    it 'should return at least one element' do
-      @collection.length.should > 0
-    end
-
-    it 'should have key and value for every element' do
-      @collection.each do |c|
-        c.length.should == 2
-      end
-    end
-  end
-
 end

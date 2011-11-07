@@ -43,7 +43,4 @@
         %td= @company.city
       %tr
         %th= t 'simple_form.labels.state'
-        - unless @company.state.blank?
-          %td= t "states_collection.#{@company.state}"
-        - else
-          %td
+        %td= state_name @company.state

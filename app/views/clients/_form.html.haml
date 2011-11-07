@@ -1,4 +1,14 @@
 = simple_form_for @client do |f|
+  = f.input :name
   = f.input :company_name
   = f.input :cnpj
+  = f.input :email
+  = f.input :phone
+  = f.input :fax
+  = f.input :skype
+  = f.input :msn
+  = f.input :street
+  = f.input :zip_code
+  = f.input :city
+  = f.input :state, :collection => states_collection, :prompt => t('label.select')
   = f.button :submit

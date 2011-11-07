@@ -1,5 +1,7 @@
 module ApplicationHelper
 
+  include StatesCollectionHelper
+
   def is_path_to_current_controller path
     actual_path = Rep::Application::routes.recognize_path(path)
     actual_path[:controller] == controller.controller_name
@@ -11,10 +13,6 @@ module ApplicationHelper
     else
       link_to title, path
     end
-  end
-
-  def states_collection
-    I18n.t('states_collection').invert.to_a
   end
 
 end

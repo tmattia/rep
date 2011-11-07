@@ -7,6 +7,12 @@ module FormSupport
     end
   end
 
+  def select_collection(collection_name, model, field)
+    value = model.send(field)
+    select I18n.t("#{collection_name}_collection.#{value}"),
+      :from => I18n.t("simple_form.labels.#{field}") unless value.nil?
+  end
+
   def submit
     find('input[type=submit]').click
   end

@@ -14,8 +14,18 @@
 ActiveRecord::Schema.define(:version => 20111026224048) do
 
   create_table "clients", :force => true do |t|
+    t.string   "name"
     t.string   "company_name"
     t.string   "cnpj"
+    t.string   "email"
+    t.string   "phone"
+    t.string   "fax"
+    t.string   "skype"
+    t.string   "msn"
+    t.string   "street"
+    t.string   "zip_code"
+    t.string   "city"
+    t.string   "state"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
