@@ -32,7 +32,7 @@ Quando /^eu preencher o formulário do cliente com dados inválidos$/ do
   fill_and_submit_client_form_with(invalid_client)
 end
 
-Quando /^eu preencher o formulário com a razão social de um cliente que já existe/ do
+Quando /^eu preencher o formulário com o nome de um cliente que já existe/ do
   existing_client = Factory(:client)
   fill_and_submit_client_form_with(existing_client)
 end

@@ -27,7 +27,7 @@ Factory.define :invalid_company, :class => Company do |c|
 end
 
 Factory.define :client do |f|
-  f.company_name { Factory.next(:name) }
+  f.name { Factory.next(:name) }
   f.cnpj { Factory.next(:cnpj) }
 end
 

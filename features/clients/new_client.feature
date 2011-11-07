@@ -12,10 +12,10 @@ Funcionalidade: Cadastrar Cliente
       Então eu devo ver uma mensagem de sucesso
       E eu devo ver o cliente
 
-    Cenário: Razão Social duplicada
-      Quando eu preencher o formulário com a razão social de um cliente que já existe
+    Cenário: Nome duplicado
+      Quando eu preencher o formulário com o nome de um cliente que já existe
       Então eu devo ver uma mensagem de erro
-      E eu devo ver o campo "Razão Social" com o erro "já está em uso"
+      E eu devo ver o campo "Nome" com o erro "já está em uso"
 
     Cenário: CNPJ duplicado
       Quando eu preencher o formulário com o CNPJ de um cliente que já existe
