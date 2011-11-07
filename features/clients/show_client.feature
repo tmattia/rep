@@ -1,0 +1,9 @@
+# language: pt
+
+Funcionalidade: Ver Cliente
+  Como Secretária
+  Eu quero ver os dados de um Cliente cadastrado
+
+    Cenário: Sucesso
+      Dado que eu estou na página de um cliente
+      Então eu devo ver os dados do cliente

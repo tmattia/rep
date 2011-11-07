@@ -9,5 +9,6 @@ describe 'layouts/_header.html.haml' do
   subject { rendered }
 
   it { should have_css("a[href='#{companies_path}']") }
+  it { should have_css("a[href='#{clients_path}']") }
 
 end

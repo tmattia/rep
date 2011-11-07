@@ -17,6 +17,12 @@
       add: Adicionar Representada
       edit: Editar Representada
 
+    client:
+      plural: Clientes
+      add: Adicionar Cliente
+      edit: Editar Cliente
+
+
   flash:
     actions:
       create:
@@ -268,3 +274,4 @@
 
     models:
       company: Representada
+      client: Cliente
