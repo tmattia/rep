@@ -1,0 +1,13 @@
+#main.ten.columns
+  %article
+    %header
+      %h2= t 'label.client.plural'
+      = link_to t('label.add'), new_client_path, :class => 'button-pill'
+
+    - if @clients.length > 0
+      %table.clients
+        - @clients.each do |client|
+          %tr
+            %td= link_to client.company_name, client
+    - else
+      %p= t 'label.no_records', :model => t('activerecord.models.client')
