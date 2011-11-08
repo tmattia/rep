@@ -162,13 +162,14 @@ a.button-pill
   margin-bottom: 20px
   background: #fff
 
+  &:focus
+    border: 1px solid #aaa
+    color: #555
+    @include box-shadow(1px 1px 3px rgba(0,0,0,.2))
+
 select
   padding: 0
 
-input[type="text"]:focus, input[type="password"]:focus, input[type="email"]:focus, textarea:focus
-  border: 1px solid #aaa
-  color: #555
-  @include box-shadow(0 0 3px rgba(0,0,0,.2))
 
 textarea
   min-height: 60px
@@ -179,7 +180,8 @@ label, legend
   font-size: 16px
 
 label abbr
-  font-size: 10px
+  font-size: 12px
+  font-weight: bold
   color: #f00
 
 input[type="checkbox"]

@@ -96,8 +96,12 @@ body
 
   input
     margin-bottom: 0
-    border-color: #b00
+    border: 2px solid #b00
     float: left
+    background-color: #f9f3f3
+
+    &:focus
+      border: 2px solid #b00
 
   span
     display: inline-block
@@ -209,6 +213,9 @@ input[type="submit"]
         width: 110px
     .extra
       display: none
+
+  label abbr
+    font-size: 16px
 
 @media screen and (max-width: 479px)
   table
