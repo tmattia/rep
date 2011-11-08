@@ -23,8 +23,8 @@ describe StatesCollectionHelper do
   end
 
   describe 'state_name' do
-    it 'should return nil when given an empty state abbreviation' do
-      state_name('').should be_nil
+    it 'should return blank message when given an empty state abbreviation' do
+      state_name('').should == I18n.t('show_for.blank')
     end
 
     it 'should return the state name when given a valid state abbreviation' do

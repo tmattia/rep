@@ -261,6 +261,23 @@
       odd: "deve ser ímpar"
       even: "deve ser par"
 
+  default_attributes: &default_attributes
+    city: 'Cidade'
+    cnpj: 'CNPJ'
+    code: 'Código'
+    company: 'Representada'
+    company_name: 'Razão Social'
+    description: 'Descrição'
+    email: 'Email'
+    fax: 'Fax'
+    msn: 'MSN'
+    name: 'Nome'
+    phone: 'Telefone'
+    skype: 'Skype'
+    state: 'Estado'
+    street: 'Endereço'
+    zip_code: 'CEP'
+
   activerecord:
     errors:
       template:
@@ -276,6 +293,14 @@
 
       full_messages:
         format: "%{attribute} %{message}"
+
+    attributes:
+      client:
+        <<: *default_attributes
+      company:
+        <<: *default_attributes
+      product:
+        <<: *default_attributes
 
     models:
       client: Cliente

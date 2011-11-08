@@ -5,7 +5,11 @@ module StatesCollectionHelper
   end
 
   def state_name state_abbr
-    I18n.t("states_collection.#{state_abbr.upcase}") unless state_abbr.blank?
+    if state_abbr.blank?
+      I18n.t("show_for.blank")
+    else
+      I18n.t("states_collection.#{state_abbr.upcase}")
+    end
   end
 
 end

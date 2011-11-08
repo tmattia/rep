@@ -7,21 +7,3 @@
     required:
       text: 'obrigatório'
       mark: '*'
-
-    labels:
-      city: 'Cidade'
-      cnpj: 'CNPJ'
-      code: 'Código'
-      company: 'Representada'
-      company_name: 'Razão Social'
-      description: 'Descrição'
-      email: 'Email'
-      fax: 'Fax'
-      msn: 'MSN'
-      name: 'Nome'
-      password: 'Senha'
-      phone: 'Telefone'
-      skype: 'Skype'
-      state: 'Estado'
-      street: 'Endereço'
-      zip_code: 'CEP'

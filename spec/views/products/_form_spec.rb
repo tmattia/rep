@@ -11,8 +11,8 @@ describe 'products/_form.html.haml' do
 
   subject { rendered }
 
-  it { should have_field(t('simple_form.labels.company')) }
-  it { should have_field(t('simple_form.labels.code')) }
-  it { should have_field(t('simple_form.labels.description')) }
+  [:company, :code, :description].each do |field|
+    it { should have_field(t("activerecord.attributes.product.#{field}")) }
+  end
 
 end

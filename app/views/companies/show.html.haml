@@ -6,41 +6,20 @@
       %h3= t 'label.record_data'
       = link_to t('label.edit'), edit_company_path(@company), :class => 'button-pill'
 
-    %table.company
-      %tr
-        %th= t 'simple_form.labels.company_name'
-        %td= @company.company_name
-      %tr
-        %th= t 'simple_form.labels.cnpj'
-        %td= @company.cnpj
+    = show_for @company do |c|
+      = c.attribute :company_name
+      = c.attribute :cnpj
 
-    %table.company
-      %tr
-        %th= t 'simple_form.labels.email'
-        %td= @company.email
-      %tr
-        %th= t 'simple_form.labels.phone'
-        %td= @company.phone
-      %tr
-        %th= t 'simple_form.labels.fax'
-        %td= @company.fax
-      %tr
-        %th= t 'simple_form.labels.msn'
-        %td= @company.msn
-      %tr
-        %th= t 'simple_form.labels.skype'
-        %td= @company.skype
+    = show_for @company, :id => "company_#{@company.id}_contact" do |c|
+      = c.attribute :email
+      = c.attribute :phone
+      = c.attribute :fax
+      = c.attribute :msn
+      = c.attribute :skype
 
-    %table.company
-      %tr
-        %th= t 'simple_form.labels.street'
-        %td= @company.street
-      %tr
-        %th= t 'simple_form.labels.zip_code'
-        %td= @company.zip_code
-      %tr
-        %th= t 'simple_form.labels.city'
-        %td= @company.city
-      %tr
-        %th= t 'simple_form.labels.state'
-        %td= state_name @company.state
+    = show_for @company, :id => "company_#{@company.id}_address" do |c|
+      = c.attribute :street
+      = c.attribute :zip_code
+      = c.attribute :city
+      = c.attribute :state do
+        = state_name @company.state

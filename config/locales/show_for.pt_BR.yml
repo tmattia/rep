@@ -1,0 +1,7 @@
+# encoding: UTF-8
+
+"pt-BR":
+  show_for:
+    blank: "Não informado"
+    "yes": "Sim"
+    "no": "Não"

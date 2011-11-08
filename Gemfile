@@ -25,3 +25,4 @@ end
 
 gem "inherited_resources"
 gem "simple_form"
+gem "show_for"
