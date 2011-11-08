@@ -187,12 +187,11 @@ input[type="submit"]
 
 
 @media screen and (max-width: 767px)
-  #auth-bar
-    ul
-      display: none
+  #auth-bar-bg
+    h1, ul
+      text-align: center
 
   #header-bg
-    display: none
     header
       nav
         ul
@@ -201,7 +200,16 @@ input[type="submit"]
           li
             display: inline-block
             width: 100%
-            margin-bottom: 2px
+            margin-bottom: 8px
+            text-align: center
+            @include box-sizing(border-box)
+
+            a
+              @include border-radius(0px)
+              padding: 5px 10px
+
+  #search
+    display: none
 
   #content
     margin-top: 10px
