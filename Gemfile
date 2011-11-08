@@ -23,6 +23,5 @@ group :test do
   gem "launchy", ">= 2.0.5"
 end
 
-gem "devise", ">= 1.4.7"
 gem "inherited_resources"
 gem "simple_form"
