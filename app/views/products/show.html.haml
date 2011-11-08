@@ -10,3 +10,6 @@
       %tr
         %th= t 'simple_form.labels.company'
         %td= link_to @product.company.name, @product.company
+      %tr
+        %th= t 'simple_form.labels.description'
+        %td= simple_format(h(@product.description))

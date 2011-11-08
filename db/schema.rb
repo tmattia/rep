@@ -63,6 +63,7 @@ ActiveRecord::Schema.define(:version => 20111026224048) do
 
   create_table "products", :force => true do |t|
     t.string   "code"
+    t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "company_id"

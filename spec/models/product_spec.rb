@@ -11,6 +11,8 @@ describe Product do
   it { should validate_uniqueness_of(:code) }
   it { should ensure_length_of(:code).is_at_most(255) }
 
+  it { should have_db_column(:description) }
+
 end
 
 

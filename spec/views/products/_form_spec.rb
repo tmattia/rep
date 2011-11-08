@@ -13,5 +13,6 @@ describe 'products/_form.html.haml' do
 
   it { should have_field(t('simple_form.labels.company')) }
   it { should have_field(t('simple_form.labels.code')) }
+  it { should have_field(t('simple_form.labels.description')) }
 
 end

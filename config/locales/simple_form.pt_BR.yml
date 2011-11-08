@@ -14,6 +14,7 @@
       code: 'Código'
       company: 'Representada'
       company_name: 'Razão Social'
+      description: 'Descrição'
       email: 'Email'
       fax: 'Fax'
       msn: 'MSN'
