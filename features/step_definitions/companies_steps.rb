@@ -10,7 +10,7 @@ Dado /^que eu estou na página de editar representada$/ do
 end
 
 Dado /^que pelo menos uma representada esteja cadastrada$/ do
-  Factory(:company)
+  @company = Factory(:company)
 end
 
 Dado /^que eu estou na página de uma representada$/ do

@@ -1,0 +1,13 @@
+#main.ten.columns
+  %article
+    %header
+      %h2= t 'label.product.plural'
+      = link_to t('label.add'), new_product_path, :class => 'button-pill'
+
+    - if @products.length > 0
+      %table.products
+        - @products.each do |product|
+          %tr
+            %td= link_to product.code, product
+    - else
+      %p= t 'label.no_records', :model => t('activerecord.models.product')

@@ -11,6 +11,8 @@
     labels:
       city: 'Cidade'
       cnpj: 'CNPJ'
+      code: 'Código'
+      company: 'Representada'
       company_name: 'Razão Social'
       email: 'Email'
       fax: 'Fax'

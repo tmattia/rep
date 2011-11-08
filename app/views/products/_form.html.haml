@@ -1,0 +1,4 @@
+= simple_form_for @product do |f|
+  = f.association :company, :prompt => t('label.select')
+  = f.input :code
+  = f.submit

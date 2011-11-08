@@ -22,6 +22,11 @@
       add: Adicionar Representada
       edit: Editar Representada
 
+    product:
+      plural: Produtos
+      add: Adicionar Produto
+      edit: Editar Produto
+
 
   flash:
     actions:
@@ -275,3 +280,4 @@
     models:
       client: Cliente
       company: Representada
+      product: Produto

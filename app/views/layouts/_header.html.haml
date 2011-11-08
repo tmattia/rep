@@ -10,7 +10,7 @@
               %li= link_to 'Pedidos', '#pedidos'
               %li= link_to 'Assistências', '#assistencias'
               %li= link_to_current t('label.client.plural'), clients_path
-              %li= link_to 'Produtos', '#produtos'
+              %li= link_to_current t('label.product.plural'), products_path
         #search.four.columns.alpha.omega
           %form
             %input{:type => :search, :placeholder => t('label.search')}

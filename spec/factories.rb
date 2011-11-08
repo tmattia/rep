@@ -32,7 +32,8 @@ Factory.define :client do |f|
 end
 
 Factory.define :product do |f|
-  f.code { Factory.next(:code) }
+  f.company { |a| a.association(:company) }
+  f.code    { Factory.next(:code) }
 end
 
 Factory.define :order do |f|
