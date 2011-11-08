@@ -3,25 +3,14 @@ require 'spec_helper'
 describe ClientsHelper do
 
   describe 'link_to_client' do
-    context 'a client with an empty name' do
+    context 'a client without a city' do
       before do
-        @client = Factory(:client, :name => '')
-      end
-
-      subject { link_to_client(@client) }
-
-      it { should include(@client.company_name) }
-    end
-
-    context 'a client with a name' do
-      before do
-        @client = Factory(:client, :name => 'Amazing Name')
+        @client = Factory(:client)
       end
 
       subject { link_to_client(@client) }
 
       it { should include(@client.name) }
-      it { should_not include(@client.company_name) }
     end
 
     context 'a client with a city' do
@@ -31,6 +20,7 @@ describe ClientsHelper do
 
       subject { link_to_client(@client) }
 
+      it { should include(@client.name) }
       it { should include(@client.city) }
     end
 
