@@ -5,6 +5,7 @@ describe Product do
   subject { Factory(:product) }
 
   it { should belong_to(:company) }
+  it { should validate_presence_of(:company) }
 
   it { should validate_presence_of(:code) }
   it { should validate_uniqueness_of(:code) }
