@@ -8,6 +8,6 @@
       %table.products
         - @products.each do |product|
           %tr
-            %td= link_to product.code, product
+            %td= link_to_product product
     - else
       %p= t 'label.no_records', :model => t('activerecord.models.product')
