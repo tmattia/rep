@@ -1,4 +1,4 @@
-= simple_form_for @client do |f|
+= simple_form_for @client, :validate => true do |f|
   = f.input :name
   = f.input :company_name
   = f.input :cnpj, :input_html => { :type => :number }

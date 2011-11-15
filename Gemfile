@@ -26,3 +26,5 @@ end
 gem "inherited_resources"
 gem "simple_form"
 gem "show_for"
+gem "client_side_validations"
+gem "i18n-js"
