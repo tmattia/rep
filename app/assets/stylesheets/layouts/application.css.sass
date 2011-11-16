@@ -167,23 +167,11 @@ input[type="submit"]
       & + *
         clear: both
 
-  ul
-    @include border-radius(3px)
-    border: 1px solid #ccc
-    background-color: #fff
-
-    li
-      border-bottom: 1px solid #ccc
-
-      &:first-child
-        &:hover, a
-          @include border-radius(3px 3px 0 0)
-
-      &:last-child
-        border: none
-
-        &:hover, a
-          @include border-radius(0 0 3px 3px)
+#breadcrumbs
+  margin: -10px 0 20px 0
+  border-bottom: 1px solid #ccc
+  padding: 5px
+  font-size: 13px
 
 
 @media screen and (max-width: 767px)
