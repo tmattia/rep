@@ -1,14 +1,14 @@
 = simple_form_for @company, :validate => true do |f|
   = f.input :name
   = f.input :company_name
-  = f.input :cnpj, :input_html => { :type => :number }
+  = f.input :cnpj
   = f.input :email
   = f.input :phone
   = f.input :fax, :as => :tel
   = f.input :skype
   = f.input :msn, :as => :email
   = f.input :street
-  = f.input :zip_code, :input_html => { :type => :number }
+  = f.input :zip_code
   = f.input :city
   = f.input :state, :collection => states_collection, :prompt => t('label.select')
   = f.button :submit
