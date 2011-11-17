@@ -1,7 +1,9 @@
 Rep::Application.routes.draw do
-  resources :companies
-  resources :clients
-  resources :products
+  scope(:path_names => { :new => "adicionar", :edit => "editar" }) do
+    resources :companies, :path => "representadas"
+    resources :clients, :path => "clientes"
+    resources :products, :path => "produtos"
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
