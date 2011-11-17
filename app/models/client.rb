@@ -30,4 +30,8 @@ class Client < ActiveRecord::Base
 
   validates :state, :length => { :is => 2 }, :allow_blank => true
 
+  def to_param
+    "#{id}-#{name.parameterize}"
+  end
+
 end

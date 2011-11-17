@@ -43,7 +43,7 @@ Quando /^eu preencher o formulário com o CNPJ de um cliente que já existe/ do
 end
 
 Então /^eu devo ver o cliente/ do
-  current_path.should match /^\/clients\/\d$/
+  current_path.should match /^\/clientes\/\d/
 end
 
 Então /^eu devo ver os dados do cliente$/ do

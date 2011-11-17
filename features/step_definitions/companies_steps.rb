@@ -38,7 +38,7 @@ Quando /^eu preencher o formulário com o nome de uma representada que já exist
 end
 
 Então /^eu devo ver a representada$/ do
-  current_path.should match /^\/companies\/\d$/
+  current_path.should match /^\/representadas\/\d/
 end
 
 Então /^eu devo ver os dados da representada$/ do

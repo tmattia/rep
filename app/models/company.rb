@@ -32,4 +32,8 @@ class Company < ActiveRecord::Base
 
   validates :skype, :length => { :maximum => 255 }
 
+  def to_param
+    "#{id}-#{name.parameterize}"
+  end
+
 end

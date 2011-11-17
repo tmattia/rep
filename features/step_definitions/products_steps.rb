@@ -38,7 +38,7 @@ Quando /^eu preencher o formulário com o código de um produto que já existe/ 
 end
 
 Então /^eu devo ver o produto/ do
-  current_path.should match /^\/products\/\d$/
+  current_path.should match /^\/produtos\/\d/
 end
 
 Então /^eu devo ver os dados do produto$/ do

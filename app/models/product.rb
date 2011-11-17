@@ -8,4 +8,8 @@ class Product < ActiveRecord::Base
                    :uniqueness => true,
                    :length => { :maximum => 255 }
 
+  def to_param
+    "#{id}-#{code.parameterize}"
+  end
+
 end
