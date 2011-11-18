@@ -1,0 +1,6 @@
+= simple_form_for @order, :validate => true do |f|
+  = f.association :client, :prompt => t('label.select')
+  = f.association :company, :prompt => t('label.select')
+  = f.submit t('label.order.payment_comission_and_shipment')
+  ou
+  = f.submit t('label.order.add_items')

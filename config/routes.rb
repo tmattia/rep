@@ -2,6 +2,13 @@ Rep::Application.routes.draw do
   scope(:path_names => { :new => "adicionar", :edit => "editar" }) do
     resources :companies, :path => "representadas"
     resources :clients, :path => "clientes"
+    resources :orders, :path => "pedidos" do
+      resources :order_items, :path => "itens"
+
+      member do
+        get :payment_comission_and_shipment, :path => "pagamento_comissao_e_frete"
+      end
+    end
     resources :products, :path => "produtos"
   end
 

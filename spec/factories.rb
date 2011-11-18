@@ -43,9 +43,15 @@ Factory.define :order do |f|
   f.after_create { |o| Factory(:order_item, :order => o) }
 end
 
+Factory.define :invalid_order, :class => Order do |f|
+end
+
 Factory.define :order_item do |f|
   f.quantity   2
   f.unit_price 10.0
   f.order      { |a| a.association(:order) }
   f.product    { |a| a.association(:product) }
+end
+
+Factory.define :invalid_order_item, :class => OrderItem do |f|
 end

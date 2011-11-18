@@ -5,7 +5,7 @@ describe OrderItem do
   subject { Factory(:order_item) }
 
   it { should belong_to(:product) }
-  it { should validate_presence_of(:product) }
+  it { should validate_presence_of(:product_id) }
 
   it { should belong_to(:order) }
   it { should validate_presence_of(:order) }

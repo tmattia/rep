@@ -1,0 +1,7 @@
+- breadcrumbs.add @order_item.order.id, order_path(@order_item.order), :i18n => false
+- breadcrumbs.add 'label.order_item.add'
+
+#main.ten.columns
+  %h2= t('label.order_item.add')
+
+  = render 'form'

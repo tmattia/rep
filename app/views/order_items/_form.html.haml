@@ -1,0 +1,15 @@
+= simple_form_for @order_item, :url => order_order_items_path(@order_item.order), :validate => true do |f|
+  = f.association :product,
+                  :collection => @order_item.order.company.products,
+                  :label_method => 'code',
+                  :prompt => t('label.select')
+
+  .five.columns.alpha
+    = f.input :unit_price
+  .five.columns.omega
+    = f.input :quantity
+
+  .ten.columns.alpha.omega
+    = f.submit
+    ou
+    = f.submit t('label.order_item.save_and_add_another')

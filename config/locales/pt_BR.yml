@@ -23,6 +23,19 @@
       add: Adicionar Representada
       edit: Editar Representada
 
+    order:
+      plural: Pedidos
+      add: Adicionar Pedido
+      edit: Editar Pedido
+      add_items: 'Adicionar Itens »'
+      payment_comission_and_shipment: 'Pagamento, Comissão e Frete »'
+
+    order_item:
+      plural: Itens
+      add: Adicionar Item
+      edit: Editar Item
+      save_and_add_another: 'Salvar e Adicionar Outro Item'
+
     product:
       plural: Produtos
       add: Adicionar Produto
@@ -264,19 +277,24 @@
 
   default_attributes: &default_attributes
     city: 'Cidade'
+    client: 'Cliente'
     cnpj: 'CNPJ'
     code: 'Código'
     company: 'Representada'
     company_name: 'Razão Social'
+    created_at: 'Data'
     description: 'Descrição'
     email: 'Email'
     fax: 'Fax'
     msn: 'MSN'
     name: 'Nome'
     phone: 'Telefone'
+    product: 'Produto'
+    quantity: 'Quantidade'
     skype: 'Skype'
     state: 'Estado'
     street: 'Endereço'
+    unit_price: 'Valor Unitário'
     zip_code: 'CEP'
 
   activerecord:
@@ -300,10 +318,16 @@
         <<: *default_attributes
       company:
         <<: *default_attributes
+      order:
+        <<: *default_attributes
+      order_item:
+        <<: *default_attributes
       product:
         <<: *default_attributes
 
     models:
       client: Cliente
       company: Representada
+      order: Pedido
+      order_item: Item
       product: Produto
