@@ -13,4 +13,6 @@ class OrderItem < ActiveRecord::Base
   validates :unit_price, :presence => true,
                          :numericality => { :greater_than => 0 }
 
+  validates :color, :length => { :maximum => 255 }
+
 end

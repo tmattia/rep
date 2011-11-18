@@ -280,6 +280,7 @@
     client: 'Cliente'
     cnpj: 'CNPJ'
     code: 'Código'
+    color: 'Cor'
     company: 'Representada'
     company_name: 'Razão Social'
     created_at: 'Data'

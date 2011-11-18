@@ -11,7 +11,7 @@ describe 'order_items/_form.html.haml' do
 
   subject { rendered }
 
-  [:product, :unit_price, :quantity].each do |field|
+  [:product, :unit_price, :quantity, :color].each do |field|
     it { should have_field(t("activerecord.attributes.order_item.#{field}")) }
   end
   it { should have_css("input[type='submit'][value='#{t('helpers.submit.create')}']") }

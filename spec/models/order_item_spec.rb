@@ -16,4 +16,6 @@ describe OrderItem do
   it { should validate_presence_of(:unit_price) }
   it { should validate_numericality_of(:unit_price) }
 
+  it { should ensure_length_of(:color).is_at_most(255) }
+
 end

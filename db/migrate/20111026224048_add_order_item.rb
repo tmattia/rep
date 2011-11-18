@@ -5,6 +5,7 @@ class AddOrderItem < ActiveRecord::Migration
       t.references :product, :null => false
       t.integer :quantity, :null => false
       t.float :unit_price, :null => false
+      t.string :color
     end
   end
 end

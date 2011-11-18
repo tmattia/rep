@@ -52,6 +52,7 @@ ActiveRecord::Schema.define(:version => 20111026224048) do
     t.integer "product_id", :null => false
     t.integer "quantity",   :null => false
     t.float   "unit_price", :null => false
+    t.string  "color"
   end
 
   create_table "orders", :force => true do |t|
