@@ -1,7 +1,7 @@
 module FormSupport
 
   def field_name(model, field)
-    I18n.t("activerecord.attributes.#{model.class.name.downcase}.#{field}")
+    I18n.t("activerecord.attributes.#{model.class.name.underscore}.#{field}")
   end
 
   def fill_text_fields_with(model, fields)
