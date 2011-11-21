@@ -16,6 +16,10 @@ Dado /^que eu estou na página de adicionar um item ao pedido$/ do
   visit(new_order_order_item_path(@order))
 end
 
+Dado /^que eu estou na página de Pagamento, Comissão e Frete do pedido$/ do
+  visit(payment_comission_and_freightage_order_path(@order))
+end
+
 Quando /^eu preencher o formulário do pedido com dados válidos$/ do
   fill_order_form_with(@new_order)
 end
@@ -36,6 +40,16 @@ Quando /^eu enviar o formulário do item com dados inválidos$/ do
   fill_and_submit_order_item_form_with(invalid_order_item)
 end
 
+Quando /^eu preencher o formulário de Pagamento, Comissão e Frete com dados válidos$/ do
+  fill_and_submit_order_payment_comission_and_freightage_form_with(@order)
+end
+
+Quando /^eu preencher o formulário de Pagamento, Comissão e Frete com dados inválidos$/ do
+  @order.payment = []
+  @order.discount = []
+  fill_and_submit_order_payment_comission_and_freightage_form_with(@order)
+end
+
 Quando /^eu selecionar "(.*)"$/ do |text|
   find("input[type='submit'][value='#{text}']").click
 end
@@ -49,5 +63,5 @@ Então /^eu devo ver a página de Adicionar Item ao pedido$/ do
 end
 
 Então /^eu devo ver a página de Pagamento, Comissão e Frete do pedido$/ do
-  current_path.should == payment_comission_and_shipment_order_path(Order.last)
+  current_path.should == payment_comission_and_freightage_order_path(Order.last)
 end

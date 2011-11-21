@@ -1,0 +1,12 @@
+- breadcrumbs.add @order.id, order_path(@order)
+- breadcrumbs.add t('label.order.payment_comission_and_freightage')
+
+#main.ten.columns
+  %h2= t('label.order.payment_comission_and_freightage')
+  = simple_form_for @order, :validate => true do |f|
+    = f.input :payment, :as => :numeric_array, :input_html => { :step => 15 }, :separator => '/'
+    = f.input :discount, :as => :numeric_array, :input_html => { :step => 5 }
+    = f.input :interest, :input_html => { :step => 1 }
+    = f.input :comission, :input_html => { :step => 1 }
+    = f.input :observations, :input_html => { :rows => 3 }
+    = f.submit

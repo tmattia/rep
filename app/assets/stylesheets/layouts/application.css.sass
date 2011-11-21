@@ -110,6 +110,15 @@ body
   display: block
   clear: both
 
+.numeric_array
+  label:not(:first-child)
+    display: inline-block
+    width: 10px
+    padding: 0 5px
+  input
+    display: inline-block
+    width: 70px
+
 table
   width: 100%
   margin-bottom: 20px
@@ -212,9 +221,22 @@ input[type="submit"]
   label abbr
     font-size: 16px
 
+  .numeric_array
+    input
+      width: 70px
+      margin-right: -5px
+
 @media screen and (max-width: 479px)
   table
     tbody
       th
         overflow: hidden
         width: 90px
+
+  .numeric_array
+    label:not(:first-child)
+      width: 7px
+      padding: 0 2px
+    input
+      width: 60px
+      margin-right: -10px

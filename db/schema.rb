@@ -56,6 +56,11 @@ ActiveRecord::Schema.define(:version => 20111026224048) do
   end
 
   create_table "orders", :force => true do |t|
+    t.text     "payment"
+    t.text     "discount"
+    t.float    "interest"
+    t.float    "comission"
+    t.text     "observations"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "client_id"

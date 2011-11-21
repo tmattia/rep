@@ -7,6 +7,7 @@
     delete: Excluir
     edit: Editar
     no_records: "Nenhum(a) %{model} cadastrado(a)."
+    or: 'ou'
     please_check_fields: 'Por favor, verifique se você preencheu todos os campos corretamente.'
     record_data: "Dados Cadastrais"
     search: Buscar
@@ -27,8 +28,10 @@
       plural: Pedidos
       add: Adicionar Pedido
       edit: Editar Pedido
-      add_items: 'Adicionar Itens »'
-      payment_comission_and_shipment: 'Pagamento, Comissão e Frete »'
+      add_items: Adicionar Itens
+      add_items_submit: Adicionar Itens »
+      payment_comission_and_freightage: Pagamento, Comissão e Frete
+      payment_comission_and_freightage_submit: Pagamento, Comissão e Frete »
 
     order_item:
       plural: Itens
@@ -281,14 +284,20 @@
     cnpj: 'CNPJ'
     code: 'Código'
     color: 'Cor'
+    comission: 'Comissão'
     company: 'Representada'
     company_name: 'Razão Social'
     created_at: 'Data'
     description: 'Descrição'
+    discount: 'Desconto'
     email: 'Email'
     fax: 'Fax'
+    freightage: 'Frete'
+    interest: 'Juros'
     msn: 'MSN'
     name: 'Nome'
+    observations: 'Observações'
+    payment: 'Prazo de Pagamento'
     phone: 'Telefone'
     product: 'Produto'
     quantity: 'Quantidade'

@@ -1,6 +1,8 @@
 source 'http://rubygems.org'
 gem 'rails', '3.1.1'
 
+gem 'ruby-debug19', :group => [:development]
+
 gem 'sqlite3', :group => [:development, :test]
 gem 'pg', :group => [:production]
 
@@ -15,7 +17,9 @@ gem "haml-rails", ">= 0.3.4", :group => [:development, :test]
 
 gem "rspec-rails", ">= 2.6.1", :group => [:development, :test]
 group :test do
-  gem "shoulda-matchers"
+  # fetching from git repo until the serialize matcher is included in a new version
+  gem "shoulda-matchers", :git => 'git://github.com/thoughtbot/shoulda-matchers.git'
+
   gem "factory_girl_rails", ">= 1.2.0"
   gem "cucumber-rails", ">= 1.1.1"
   gem "capybara", ">= 1.1.1"
