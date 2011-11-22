@@ -10,5 +10,9 @@
       = f.input :interest, :input_html => { :step => 1 }
     .five.columns.omega
       = f.input :comission, :input_html => { :step => 1 }
+    .five.columns.alpha
+      = f.input :type_of_freight, :collection => %w(CIF FOB), :prompt => t('label.select')
+    .five.columns.omega
+      = f.association :carrier, :prompt => t('label.select')
     = f.input :observations, :input_html => { :rows => 3 }
     = f.submit

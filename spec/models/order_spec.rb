@@ -12,6 +12,8 @@ describe Order do
 
   it { should have_many(:order_items) }
 
+  it { should belong_to(:carrier) }
+
   it { should have_db_column(:created_at) }
 
   it { should serialize(:payment).as(Array) }
@@ -40,6 +42,8 @@ describe Order do
     it { should allow_value(nil).for(:discount) }
     it { should allow_value([""]).for(:discount) }
     it { should allow_value(["", "", ""]).for(:discount) }
+
+    it { should allow_value(nil).for(:type_of_freight) }
   end
 
   context 'when updating order information' do
@@ -50,6 +54,27 @@ describe Order do
 
     it { should_not allow_value([""]).for(:discount) }
     it { should_not allow_value(["", "", ""]).for(:discount) }
+
+    it { should_not allow_value(nil).for(:type_of_freight) }
+    it { should allow_value('CIF').for(:type_of_freight) }
+    it { should allow_value('FOB').for(:type_of_freight) }
+    it { should_not allow_value('any').for(:type_of_freight) }
+
+    context 'when type of freight is CIF' do
+      it 'should not require a carrier' do
+        subject.type_of_freight = 'CIF'
+        subject.carrier = nil
+        subject.should be_valid
+      end
+    end
+
+    context 'when type of freight is FOB' do
+      it 'should require a carrier' do
+        subject.type_of_freight = 'FOB'
+        subject.carrier = nil
+        subject.should_not be_valid
+      end
+    end
   end
 
 end

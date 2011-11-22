@@ -12,6 +12,10 @@ Dado /^que um pedido existe$/ do
   @order = Factory(:order, :company => @product.company)
 end
 
+Dado /^que uma transportadora existe$/ do
+  @carrier = Factory(:carrier)
+end
+
 Dado /^que eu estou na página de adicionar um item ao pedido$/ do
   visit(new_order_order_item_path(@order))
 end
@@ -41,10 +45,11 @@ Quando /^eu enviar o formulário do item com dados inválidos$/ do
 end
 
 Quando /^eu preencher o formulário de Pagamento, Comissão e Frete com dados válidos$/ do
-  fill_and_submit_order_payment_comission_and_freightage_form_with(@order)
+  fill_order_payment_comission_and_freightage_form_with(@order)
 end
 
-Quando /^eu preencher o formulário de Pagamento, Comissão e Frete com dados inválidos$/ do
+Quando /^eu enviar o formulário de Pagamento, Comissão e Frete com dados inválidos$/ do
+  @order.type_of_freight = ''
   @order.payment = []
   @order.discount = []
   fill_and_submit_order_payment_comission_and_freightage_form_with(@order)
@@ -52,6 +57,14 @@ end
 
 Quando /^eu selecionar "(.*)"$/ do |text|
   find("input[type='submit'][value='#{text}']").click
+end
+
+Quando /^eu selecionar frete do tipo "([^"]*)"$/ do |type|
+  select_type_of_freight(type)
+end
+
+Quando /^eu selecionar uma transportadora$/ do
+  select_carrier(@carrier.name)
 end
 
 Então /^eu devo ver o pedido$/ do

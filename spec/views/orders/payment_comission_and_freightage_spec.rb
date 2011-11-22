@@ -12,8 +12,9 @@ describe 'orders/payment_comission_and_freightage.html.haml' do
   subject { rendered }
 
   it { should have_css('form.order') }
-  [:discount, :payment, :interest, :comission, :observations].each do |field|
-    it { should have_field(t("activerecord.attributes.order.#{field}")) }
+  [ :discount, :payment, :interest, :comission, :type_of_freight, :carrier,
+    :observations ].each do |field|
+      it { should have_field(t("activerecord.attributes.order.#{field}")) }
   end
   for i in 1...5 do
     it { should have_css("label[for='order_payment_#{i}']") }

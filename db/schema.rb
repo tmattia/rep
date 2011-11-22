@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111122155354) do
+ActiveRecord::Schema.define(:version => 20111122191648) do
 
   create_table "carriers", :force => true do |t|
     t.string "name", :null => false
@@ -69,6 +69,8 @@ ActiveRecord::Schema.define(:version => 20111122155354) do
     t.datetime "updated_at"
     t.integer  "client_id"
     t.integer  "company_id"
+    t.string   "type_of_freight", :limit => 3
+    t.integer  "carrier_id"
   end
 
   create_table "products", :force => true do |t|

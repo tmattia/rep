@@ -32,7 +32,7 @@ module OrdersSupport
     end
   end
 
-  def fill_and_submit_order_payment_comission_and_freightage_form_with(order)
+  def fill_order_payment_comission_and_freightage_form_with(order)
     within 'form.order' do
       fill_in "order_payment", :with => order.payment[0]
       fill_in "order_discount", :with => order.discount[0]
@@ -41,8 +41,22 @@ module OrdersSupport
         fill_in "order_discount_#{i}", :with => order.discount[i]
       end
       fill_text_fields_with(order, [:interest, :comission, :observations])
+    end
+  end
+
+  def fill_and_submit_order_payment_comission_and_freightage_form_with(order)
+    fill_order_payment_comission_and_freightage_form_with(order)
+    within 'form.order' do
       submit
     end
+  end
+
+  def select_type_of_freight(type)
+    select type, :from => field_name(:order, :type_of_freight)
+  end
+
+  def select_carrier(carrier_name)
+    select carrier_name, :from => field_name(:order, :carrier)
   end
 end
 

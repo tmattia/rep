@@ -284,6 +284,7 @@
       even: "deve ser par"
 
   default_attributes: &default_attributes
+    carrier: 'Transportadora'
     city: 'Cidade'
     client: 'Cliente'
     cnpj: 'CNPJ'
@@ -309,6 +310,7 @@
     skype: 'Skype'
     state: 'Estado'
     street: 'Endereço'
+    type_of_freight: 'Tipo do Frete'
     unit_price: 'Valor Unitário'
     zip_code: 'CEP'
 

@@ -1,7 +1,10 @@
 module FormSupport
 
   def field_name(model, field)
-    I18n.t("activerecord.attributes.#{model.class.name.underscore}.#{field}")
+    model_name = model.kind_of?(ActiveRecord::Base) ?
+                 model.class.name.underscore :
+                 model
+    I18n.t("activerecord.attributes.#{model_name}.#{field}")
   end
 
   def fill_text_fields_with(model, fields)

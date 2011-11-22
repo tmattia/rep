@@ -37,14 +37,15 @@ Factory.define :product do |f|
 end
 
 Factory.define :order do |f|
-  f.company   { |a| a.association(:company) }
-  f.client    { |a| a.association(:client) }
-  f.payment   ["30", "60", "90"]
-  f.discount  ["5", "3.5"]
-  f.interest  0
-  f.comission 6.5
+  f.company         { |a| a.association(:company) }
+  f.client          { |a| a.association(:client) }
+  f.payment         ["30", "60", "90"]
+  f.discount        ["5", "3.5"]
+  f.interest        0
+  f.comission       6.5
+  f.type_of_freight 'CIF'
 
-  f.after_create { |o| Factory(:order_item, :order => o) }
+  f.after_create    { |o| Factory(:order_item, :order => o) }
 end
 
 Factory.define :order_item do |f|
