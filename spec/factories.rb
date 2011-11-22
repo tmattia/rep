@@ -56,3 +56,7 @@ end
 
 Factory.define :invalid_order_item, :class => OrderItem do |f|
 end
+
+Factory.define :carrier do |f|
+  f.name { Factory.next(:name) }
+end
