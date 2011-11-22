@@ -1,5 +1,6 @@
 Rep::Application.routes.draw do
   scope(:path_names => { :new => "adicionar", :edit => "editar" }) do
+    resources :carriers, :path => "transportadoras"
     resources :companies, :path => "representadas"
     resources :clients, :path => "clientes"
     resources :orders, :path => "pedidos" do

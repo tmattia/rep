@@ -1,0 +1,13 @@
+#main.ten.columns
+  %article
+    %header
+      %h2= t 'label.carrier.plural'
+      = link_to t('label.add'), new_carrier_path, :class => 'button-pill'
+
+    - if @carriers.length > 0
+      %table.carriers
+        - @carriers.each do |carrier|
+          %tr
+            %td= link_to carrier.name, carrier
+    - else
+      %p= t 'label.no_records', :model => t('activerecord.models.carrier')

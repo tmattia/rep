@@ -14,6 +14,11 @@
     select: 'Selecione...'
     show: Ver
 
+    carrier:
+      plural: Transportadoras
+      add: Adicionar Transportadora
+      edit: Editar Transportadora
+
     client:
       plural: Clientes
       add: Adicionar Cliente
@@ -324,6 +329,8 @@
         format: "%{attribute} %{message}"
 
     attributes:
+      carrier:
+        <<: *default_attributes
       client:
         <<: *default_attributes
       company:
@@ -336,6 +343,7 @@
         <<: *default_attributes
 
     models:
+      carrier: Transportadora
       client: Cliente
       company: Representada
       order: Pedido

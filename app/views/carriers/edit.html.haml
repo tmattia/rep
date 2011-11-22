@@ -1,0 +1,8 @@
+- breadcrumbs.add @carrier.name, carrier_path(@carrier), :i18n => false
+- breadcrumbs.add 'label.carrier.edit'
+
+#main.ten.columns
+  %h2= t 'label.carrier.edit'
+
+  = render 'form'
+
