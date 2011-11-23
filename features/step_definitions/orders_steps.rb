@@ -24,6 +24,10 @@ Dado /^que eu estou na página de Pagamento, Comissão e Frete do pedido$/ do
   visit(payment_comission_and_freightage_order_path(@order))
 end
 
+Quando /^eu estou na página do pedido$/ do
+  visit(order_path(@order))
+end
+
 Quando /^eu preencher o formulário do pedido com dados válidos$/ do
   fill_order_form_with(@new_order)
 end
@@ -77,4 +81,16 @@ end
 
 Então /^eu devo ver a página de Pagamento, Comissão e Frete do pedido$/ do
   current_path.should == payment_comission_and_freightage_order_path(Order.last)
+end
+
+Então /^eu devo ver a data do pedido$/ do
+  page.should have_content(I18n.l(@order.created_at, :format => :date))
+end
+
+Então /^eu devo ver o nome do cliente$/ do
+  page.should have_content(@order.client.name)
+end
+
+Então /^eu devo ver o nome da representada$/ do
+  page.should have_content(@order.company.name)
 end

@@ -1,0 +1,14 @@
+- breadcrumbs.add @order.id, nil, :i18n => false
+
+#main.ten.columns
+  %h2
+    = t 'activerecord.models.order'
+    = @order.id
+
+  = show_for @order do |o|
+    = o.attribute :created_at do
+      = l @order.created_at, :format => :date
+    = o.association :client do
+      = link_to @order.client.name, client_path(@order.client)
+    = o.association :company do
+      = link_to @order.company.name, company_path(@order.company)

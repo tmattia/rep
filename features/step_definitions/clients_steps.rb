@@ -42,7 +42,7 @@ Quando /^eu preencher o formulário com o CNPJ de um cliente que já existe/ do
   fill_and_submit_client_form_with(existing_client)
 end
 
-Então /^eu devo ver o cliente/ do
+Então /^eu devo ver o cliente$/ do
   current_path.should match /^\/clientes\/\d/
 end
 
