@@ -16,7 +16,7 @@ Funcionalidade: Adicionar informações de Pagamento, Comissão e Frete a um ped
       Então eu devo ver uma mensagem de sucesso
       E eu devo ver o pedido
 
-    Cenário: Frete do tipo FOB com transportadora
+    Cenário: Frete FOB com transportadora
       Quando eu preencher o formulário de Pagamento, Comissão e Frete com dados válidos
       E eu selecionar frete do tipo "FOB"
       E eu selecionar uma transportadora
@@ -24,7 +24,7 @@ Funcionalidade: Adicionar informações de Pagamento, Comissão e Frete a um ped
       Então eu devo ver uma mensagem de sucesso
       E eu devo ver o pedido
 
-    Cenário: Frete do tipo FOB sem transportadora
+    Cenário: Frete FOB sem transportadora
       Quando eu preencher o formulário de Pagamento, Comissão e Frete com dados válidos
       E eu selecionar frete do tipo "FOB"
       E eu selecionar "Salvar"
