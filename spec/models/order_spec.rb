@@ -16,15 +16,43 @@ describe Order do
 
   it { should have_db_column(:created_at) }
 
-  it { should serialize(:payment).as(Array) }
-  it { should allow_value([15]).for(:payment) }
-  it { should allow_value([28, 56, 84]).for(:payment) }
-  it { should_not allow_value(['a']).for(:payment) }
+  describe '#payment' do
+    it { should serialize(:payment).as(Array) }
 
-  it { should serialize(:discount).as(Array) }
-  it { should allow_value([15]).for(:discount) }
-  it { should allow_value([15, 10.5, 5, 3, 1.5]).for(:discount) }
-  it { should_not allow_value(['a']).for(:discount) }
+    it 'should accept integer values' do
+      subject.payment = [30, "60"]
+      subject.payment.should == [30, 60]
+    end
+
+    it 'should ignore non-integer values' do
+      subject.payment = ["asd", "", nil]
+      subject.payment.should == []
+    end
+
+    it 'should have a human readable format' do
+      subject.payment = [30, 60, 90]
+      subject.human_payment.should == '30 / 60 / 90'
+    end
+  end
+
+  describe '#discount' do
+    it { should serialize(:discount).as(Array) }
+
+    it 'should accept float values' do
+      subject.discount = [15, "15", 10.5, "10.5"]
+      subject.discount.should == [15.0, 15.0, 10.5, 10.5]
+    end
+
+    it 'should ignore non-float values' do
+      subject.discount = ["5,5", "asd", "", nil]
+      subject.discount.should == []
+    end
+
+    it 'should have a human readable format' do
+      subject.discount = [15, 10.5, 4]
+      subject.human_discount.should == '15.0% + 10.5% + 4.0%'
+    end
+  end
 
   it { should allow_value(nil).for(:interest) }
   it { should validate_numericality_of(:interest) }
