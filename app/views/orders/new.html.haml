@@ -3,4 +3,9 @@
 #main.ten.columns
   %h2= t 'label.order.add'
 
-  = render 'orders/form'
+  = simple_form_for @order, :validate => true do |f|
+    = f.association :client, :prompt => t('label.select')
+    = f.association :company, :prompt => t('label.select')
+    = f.submit t('label.order.payment_comission_and_freightage_submit')
+    = t 'label.or'
+    = f.submit t('label.order.add_items_submit')

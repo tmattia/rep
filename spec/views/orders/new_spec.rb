@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'orders/_form.html.haml' do
+describe 'orders/new.html.haml' do
 
   let(:order) { Factory(:order) }
 
