@@ -12,3 +12,18 @@
       = link_to @order.client.name, client_path(@order.client)
     = o.association :company do
       = link_to @order.company.name, company_path(@order.company)
+
+  = show_for @order, :id => "order_#{@order.id}_payment_comission_and_freightage" do |o|
+    = o.attribute :payment
+    = o.attribute :discount
+    = o.attribute :interest
+    = o.attribute :comission
+    = o.attribute :type_of_freight
+    - if @order.carrier_id?
+      = o.association :carrier do
+        = link_to @order.carrier.name, carrier_path(@order.carrier)
+
+  - if @order.observations?
+    = show_for @order, :id => "order_#{@order.id}_observations" do |o|
+      = o.attribute :observations do
+        = simple_format @order.observations

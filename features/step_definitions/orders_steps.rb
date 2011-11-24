@@ -83,14 +83,6 @@ Então /^eu devo ver a página de Pagamento, Comissão e Frete do pedido$/ do
   current_path.should == payment_comission_and_freightage_order_path(Order.last)
 end
 
-Então /^eu devo ver a data do pedido$/ do
-  page.should have_content(I18n.l(@order.created_at, :format => :date))
-end
-
-Então /^eu devo ver o nome do cliente$/ do
-  page.should have_content(@order.client.name)
-end
-
-Então /^eu devo ver o nome da representada$/ do
-  page.should have_content(@order.company.name)
+Então /^eu devo ver os dados do pedido$/ do
+  page.should have_css('table.order')
 end

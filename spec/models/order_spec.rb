@@ -54,11 +54,27 @@ describe Order do
     end
   end
 
-  it { should allow_value(nil).for(:interest) }
-  it { should validate_numericality_of(:interest) }
+  describe '#interest' do
+    it { should allow_value(nil).for(:interest) }
 
-  it { should allow_value(nil).for(:comission) }
-  it { should validate_numericality_of(:comission) }
+    it { should validate_numericality_of(:interest) }
+
+    it 'should have a human readable format' do
+      subject.interest = 10
+      subject.human_interest.should == '10.0%'
+    end
+  end
+
+  describe '#comission' do
+    it { should allow_value(nil).for(:comission) }
+
+    it { should validate_numericality_of(:comission) }
+
+    it 'should have a human readable format' do
+      subject.comission = 6.5
+      subject.human_comission.should == '6.5%'
+    end
+  end
 
   it { should have_db_column(:observations) }
 
@@ -93,6 +109,13 @@ describe Order do
         subject.type_of_freight = 'CIF'
         subject.carrier = nil
         subject.should be_valid
+      end
+
+      it 'should set carrier to nil' do
+        subject.type_of_freight = 'CIF'
+        subject.carrier = Factory(:carrier)
+        subject.save
+        subject.carrier.should be_nil
       end
     end
 
