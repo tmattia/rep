@@ -1,5 +1,9 @@
 # encoding: utf-8
 
+Quando /^eu clicar em "(.*)"$/ do |text|
+  find("input[type='submit'][value='#{text}']").click
+end
+
 Então /^eu devo ver uma mensagem de sucesso$/ do
   page.should have_selector('#flash.success')
 end

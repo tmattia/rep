@@ -1,6 +1,5 @@
 # language: pt
 
-@working
 Funcionalidade: Ver Pedido
   Como Secretária
   Eu quero ver os dados de um Pedido cadastrado
@@ -8,4 +7,4 @@ Funcionalidade: Ver Pedido
     Cenário: Sucesso
       Dado que um pedido existe
       Quando eu estou na página do pedido
-      Então eu devo ver os dados do pedido
+      Então eu devo ver os dados do pedido para revisão

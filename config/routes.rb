@@ -5,10 +5,6 @@ Rep::Application.routes.draw do
     resources :clients, :path => "clientes"
     resources :orders, :path => "pedidos" do
       resources :order_items, :path => "itens"
-
-      member do
-        get :payment_comission_and_freightage, :path => "pagamento_comissao_e_frete"
-      end
     end
     resources :products, :path => "produtos"
   end

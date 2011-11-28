@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'orders/payment_comission_and_freightage.html.haml' do
+describe 'orders/edit.html.haml' do
 
   let(:order) { Factory(:order) }
 
