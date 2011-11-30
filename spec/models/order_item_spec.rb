@@ -18,4 +18,14 @@ describe OrderItem do
 
   it { should ensure_length_of(:color).is_at_most(255) }
 
+  describe '#total_price' do
+    before do
+      @order_item = Factory(:order_item, :unit_price => 10.5, :quantity => 2)
+    end
+
+    subject { @order_item.total_price }
+
+    it { should == 21.0 }
+  end
+
 end

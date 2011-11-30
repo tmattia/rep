@@ -35,7 +35,9 @@
       edit: Editar Pedido
       add_items: Adicionar Itens
       add_items_submit: Adicionar Itens »
+      payment_comission_and_freightage: Pagamento, Comissão e Frete
       payment_comission_and_freightage_submit: Pagamento, Comissão e Frete »
+      total: Total do Pedido
 
     order_item:
       plural: Itens
@@ -147,7 +149,7 @@
 
     currency:
       format:
-        format: '%u %n'
+        format: '%u%n'
         unit: 'R$'
         separator: ','
         delimiter: '.'
@@ -291,6 +293,7 @@
     code: 'Código'
     color: 'Cor'
     comission: 'Comissão'
+    comission_total: 'Total de Comissão'
     company: 'Representada'
     company_name: 'Razão Social'
     created_at: 'Data'

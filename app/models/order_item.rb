@@ -15,4 +15,8 @@ class OrderItem < ActiveRecord::Base
 
   validates :color, :length => { :maximum => 255 }
 
+  def total_price
+    unit_price * quantity
+  end
+
 end

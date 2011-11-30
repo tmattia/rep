@@ -136,6 +136,10 @@ table
     td, th
       border-bottom: 1px solid #ccc
       padding: 9px
+      vertical-align: middle
+
+      &.price
+        text-align: right
 
       a
         color: #333
@@ -166,8 +170,8 @@ table
 input[type="submit"]
   margin-top: 25px
 
-#main
-  article
+#main, #sidebar
+  article, section
     header
       text-align: right
       h2, h3, h4
@@ -181,6 +185,22 @@ input[type="submit"]
   border-bottom: 1px solid #ccc
   padding: 5px
   font-size: 13px
+
+#order_items
+  td
+    position: relative
+
+    .color, .total_price
+      font-weight: normal
+
+    .quantity
+      float: right
+      margin: 12px 20px auto 0
+      color: #666
+
+    .color, .total_price
+      font-size: 85%
+      color: #999
 
 
 @media screen and (max-width: 767px)

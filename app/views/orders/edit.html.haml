@@ -2,17 +2,19 @@
 - breadcrumbs.add t('label.order.edit')
 
 #main.ten.columns
-  %h2= t('label.order.payment_comission_and_freightage')
+  %h2= t('label.order.edit')
   = simple_form_for @order, :validate => true do |f|
     = f.input :payment, :as => :numeric_array, :input_html => { :step => 15 }, :separator => '/'
     = f.input :discount, :as => :numeric_array, :input_html => { :step => 5 }
-    .five.columns.alpha
-      = f.input :interest, :input_html => { :step => 1 }
-    .five.columns.omega
-      = f.input :comission, :input_html => { :step => 1 }
-    .five.columns.alpha
-      = f.input :type_of_freight, :collection => %w(CIF FOB), :prompt => t('label.select')
-    .five.columns.omega
-      = f.association :carrier, :prompt => t('label.select')
+    .container
+      .five.columns.alpha
+        = f.input :interest, :input_html => { :step => 1 }
+      .five.columns.omega
+        = f.input :comission, :input_html => { :step => 1 }
+    .container
+      .five.columns.alpha
+        = f.input :type_of_freight, :collection => %w(CIF FOB), :prompt => t('label.select')
+      .five.columns.omega
+        = f.association :carrier, :prompt => t('label.select')
     = f.input :observations, :input_html => { :rows => 3 }
     = f.submit

@@ -1,29 +1,62 @@
 - breadcrumbs.add @order.id, nil, :i18n => false
 
-#main.ten.columns
-  %h2
-    = t 'activerecord.models.order'
-    = @order.id
+#main.ten.columns.alpha
+  %article
+    %header
+      %h2= "#{t('activerecord.models.order')} #{@order.id}"
 
-  = show_for @order do |o|
-    = o.attribute :created_at do
-      = l @order.created_at, :format => :date
-    = o.association :client do
-      = link_to @order.client.name, client_path(@order.client)
-    = o.association :company do
-      = link_to @order.company.name, company_path(@order.company)
+    %section
+      %header
+        %h3.order_created_at= l @order.created_at, :format => :date
 
-  = show_for @order, :id => "order_#{@order.id}_payment_comission_and_freightage" do |o|
-    = o.attribute :payment
-    = o.attribute :discount
-    = o.attribute :interest
-    = o.attribute :comission
-    = o.attribute :type_of_freight
-    - if @order.carrier_id?
-      = o.association :carrier do
-        = link_to @order.carrier.name, carrier_path(@order.carrier)
+      = show_for @order do |o|
+        = o.association :client do
+          = link_to @order.client.name, client_path(@order.client)
+        = o.association :company do
+          = link_to @order.company.name, company_path(@order.company)
 
-  - if @order.observations?
-    = show_for @order, :id => "order_#{@order.id}_observations" do |o|
-      = o.attribute :observations do
-        = simple_format @order.observations
+    %section
+      %header
+        %h4= t 'label.order.payment_comission_and_freightage'
+        = link_to t('label.edit'), edit_order_path(@order), :class => 'button-pill'
+
+      = show_for @order, :id => "order_#{@order.id}_payment_comission_and_freightage" do |o|
+        = o.attribute :payment
+        = o.attribute :discount
+        = o.attribute :interest
+        = o.attribute :comission
+        = o.attribute :type_of_freight
+        - if @order.carrier_id?
+          = o.association :carrier do
+            = link_to @order.carrier.name, carrier_path(@order.carrier)
+
+    %section
+      %header
+        %h3= t 'label.order_item.plural'
+        = link_to t('label.add'), new_order_order_item_path(@order), :class => 'button-pill'
+
+      - unless @order.order_items.empty?
+        %table#order_items
+          %tbody
+            - @order.order_items.each do |item|
+              %tr
+                %td
+                  = link_to_order_item item
+
+      - else
+        %p= t 'label.no_records', :model => t('activerecord.models.order_item')
+
+    %section
+      - if @order.observations?
+        = show_for @order, :id => "order_#{@order.id}_observations" do |o|
+          = o.attribute :observations do
+            = simple_format @order.observations
+
+      %table#order_total
+        %tr
+          %th= t 'activerecord.attributes.order.comission_total'
+          %td.price= number_to_currency @order.total_comission
+        %tr
+          %th= t 'label.order.total'
+          %td.price= number_to_currency @order.total_price
+

@@ -44,8 +44,6 @@ Factory.define :order do |f|
   f.interest        0
   f.comission       6.5
   f.type_of_freight 'CIF'
-
-  f.after_create    { |o| Factory(:order_item, :order => o) }
 end
 
 Factory.define :order_item do |f|

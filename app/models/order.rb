@@ -53,6 +53,23 @@ class Order < ActiveRecord::Base
   end
 
 
+  def total_price
+    order_items.inject(0){ |sum, i| sum + i.total_price }
+  end
+
+  def human_total_price
+    "R$%.2f" % total_price
+  end
+
+  def total_comission
+    total_price * comission / 100.0
+  end
+
+  def human_total_comission
+    "R$#{total_comission}"
+  end
+
+
   protected
   def must_have_a_carrier_for_fob_type_of_freight
     invalid = (type_of_freight == 'FOB' and carrier.nil?)

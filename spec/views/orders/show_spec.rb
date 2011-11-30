@@ -16,6 +16,32 @@ describe 'orders/show.html.haml' do
   [:created_at, :payment, :discount, :interest, :comission].each do |field|
     it { should have_css(".order_#{field}") }
   end
+  it { should have_css("a[href='#{new_order_order_item_path(order)}']") }
+
+
+  context 'when the order has items' do
+    before do
+      order.order_items << Factory(:order_item, :order => order)
+      render
+    end
+
+    subject { rendered }
+
+    it { should have_css('#order_items') }
+    it { should have_css('#order_items tr', :length => order.order_items.length) }
+  end
+
+  context 'when the order does not have items' do
+    before do
+      order.order_items = []
+      render
+    end
+
+    subject { rendered }
+
+    it { should_not have_css('#order_items') }
+    it { should have_content(I18n.t('label.no_records', :model => I18n.t('activerecord.models.order_item'))) }
+  end
 
   context 'when the order has CIF type of freight' do
     before do
