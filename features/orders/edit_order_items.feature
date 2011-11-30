@@ -1,6 +1,5 @@
 # language: pt
 
-@working
 Funcionalidade: Editar itens de um pedido
   Para que um pedido não seja enviado com itens errados
   Como Vendedor
