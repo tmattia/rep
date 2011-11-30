@@ -13,6 +13,7 @@ describe 'orders/show.html.haml' do
 
   it { should have_css(".order_client a[href='#{client_path(order.client)}']") }
   it { should have_css(".order_company a[href='#{company_path(order.company)}']") }
+  it { should have_css(".order_status") }
   [:created_at, :payment, :discount, :interest, :comission].each do |field|
     it { should have_css(".order_#{field}") }
   end

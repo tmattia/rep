@@ -8,4 +8,10 @@ module OrdersHelper
     link_to text.html_safe, edit_order_order_item_path(item.order, item)
   end
 
+  def order_status_label order
+    "<div class='label'>
+        <span class='order_status #{order.status}'>#{order.human_status}</span>
+     </div>".html_safe
+  end
+
 end

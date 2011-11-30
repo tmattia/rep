@@ -21,4 +21,12 @@ describe OrdersHelper do
     end
   end
 
+  describe '#order_status_label' do
+    let(:order) { Factory(:order) }
+
+    subject { helper.order_status_label(order) }
+
+    it { should have_css("div.label span.order_status.#{order.status}") }
+  end
+
 end

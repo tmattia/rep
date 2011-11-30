@@ -186,6 +186,33 @@ input[type="submit"]
   padding: 5px
   font-size: 13px
 
+
+.label
+  text-align: right
+
+  span
+    display: inline-block
+    color: #fff
+    font-size: 75%
+    font-weight: bold
+    text-transform: uppercase
+    padding: 1px 6px
+    @include border-radius(3px)
+
+    &.order_status
+      &.draft
+        background-color: #fff
+        color: #666
+      &.to_be_confirmed
+        background-color: #36c
+      &.confirmed
+        background-color: #3a6
+      &.rejected
+        background-color: #c33
+      &.cancelled
+        background-color: #333
+
+
 #order_items
   td
     position: relative

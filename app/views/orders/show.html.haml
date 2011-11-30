@@ -8,6 +8,7 @@
     %section
       %header
         %h3.order_created_at= l @order.created_at, :format => :date
+        = order_status_label(@order)
 
       = show_for @order do |o|
         = o.association :client do

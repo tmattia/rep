@@ -37,6 +37,12 @@
       add_items_submit: Adicionar Itens »
       payment_comission_and_freightage: Pagamento, Comissão e Frete
       payment_comission_and_freightage_submit: Pagamento, Comissão e Frete »
+      status:
+        draft: Rascunho
+        to_be_confirmed: Aguarda Confirmação
+        confirmed: Confirmado
+        rejected: Recusado
+        cancelled: Cancelado
       total: Total do Pedido
 
     order_item:
@@ -312,6 +318,7 @@
     quantity: 'Quantidade'
     skype: 'Skype'
     state: 'Estado'
+    status: 'Situação'
     street: 'Endereço'
     type_of_freight: 'Tipo do Frete'
     unit_price: 'Valor Unitário'

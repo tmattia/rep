@@ -50,6 +50,10 @@ class Order < ActiveRecord::Base
     end
   end
 
+  def human_status
+    I18n.t "label.order.status.#{status}"
+  end
+
 
   def payment=(values)
     write_attribute(:payment, values.map{|v| Integer(v) rescue nil}.compact) \
