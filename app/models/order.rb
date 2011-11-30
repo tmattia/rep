@@ -48,10 +48,6 @@ class Order < ActiveRecord::Base
     event :cancel do
       transition [:to_be_confirmed, :confirmed] => :cancelled
     end
-
-    after_transition any => any do |order, transition|
-      order.save
-    end
   end
 
 
