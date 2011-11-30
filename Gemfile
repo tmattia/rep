@@ -34,3 +34,5 @@ gem "client_side_validations"
 gem "i18n-js"
 gem "breadcrumbs"
 gem "state_machine"
+
+gem "localtunnel", :group => [:development, :test]
