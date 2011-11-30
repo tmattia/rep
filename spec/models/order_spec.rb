@@ -16,6 +16,82 @@ describe Order do
 
   it { should have_db_column(:created_at) }
 
+  describe '#status' do
+    context 'a new order' do
+      subject { Factory(:order) }
+
+      its(:status_name) { should == :draft }
+
+      its(:can_finish_draft_and_send?) { should be_true }
+      its(:can_cancel?)                { should be_false }
+      its(:can_confirm?)               { should be_false }
+      its(:can_reject?)                { should be_false }
+    end
+
+    context 'an order waiting to be confirmed by the company' do
+      subject { Factory(:order_to_be_confirmed) }
+
+      its(:status_name) { should == :to_be_confirmed }
+
+      it { should_not be_changed }
+
+      its(:can_finish_draft_and_send?) { should be_false }
+      its(:can_cancel?)                { should be_true }
+      its(:can_confirm?)               { should be_true }
+      its(:can_reject?)                { should be_true }
+    end
+
+    context 'a confirmed order' do
+      subject { Factory(:order_confirmed) }
+
+      its(:status_name) { should == :confirmed }
+
+      it { should_not be_changed }
+
+      its(:can_finish_draft_and_send?) { should be_false }
+      its(:can_cancel?)                { should be_true }
+      its(:can_reject?)                { should be_false }
+    end
+
+    context 'a rejected order' do
+      subject { Factory(:order_rejected) }
+
+      its(:status_name) { should == :rejected }
+
+      it { should_not be_changed }
+
+      its(:can_finish_draft_and_send?) { should be_false }
+      its(:can_cancel?)                { should be_false }
+      its(:can_confirm?)               { should be_false }
+    end
+
+    context 'a cancelled order' do
+      context 'after it was sent' do
+        subject { Factory(:order_cancelled_after_sent) }
+
+        its(:status_name) { should == :cancelled }
+
+        it { should_not be_changed }
+
+        its(:can_finish_draft_and_send?) { should be_false }
+        its(:can_confirm?)               { should be_false }
+        its(:can_reject?)                { should be_false }
+      end
+
+      context 'after it was confirmed' do
+        subject { Factory(:order_cancelled_after_confirmed) }
+
+        its(:status_name) { should == :cancelled }
+
+        it { should_not be_changed }
+
+        its(:can_finish_draft_and_send?) { should be_false }
+        its(:can_confirm?)               { should be_false }
+        its(:can_reject?)                { should be_false }
+      end
+    end
+  end
+
   describe '#payment' do
     it { should serialize(:payment).as(Array) }
 

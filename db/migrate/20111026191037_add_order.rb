@@ -6,6 +6,7 @@ class AddOrder < ActiveRecord::Migration
       t.float :interest
       t.float :comission
       t.text :observations
+      t.string :status
       t.timestamps
     end
   end

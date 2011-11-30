@@ -65,6 +65,7 @@ ActiveRecord::Schema.define(:version => 20111122191648) do
     t.float    "interest"
     t.float    "comission"
     t.text     "observations"
+    t.string   "status"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "client_id"

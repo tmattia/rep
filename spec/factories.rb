@@ -46,6 +46,37 @@ Factory.define :order do |f|
   f.type_of_freight 'CIF'
 end
 
+Factory.define :order_to_be_confirmed, :parent => :order do |f|
+  f.after_create do |order|
+    order.order_items << Factory(:order_item, :order => order)
+    order.finish_draft_and_send
+  end
+end
+
+Factory.define :order_confirmed, :parent => :order_to_be_confirmed do |f|
+  f.after_create do |order|
+    order.confirm
+  end
+end
+
+Factory.define :order_rejected, :parent => :order_to_be_confirmed do |f|
+  f.after_create do |order|
+    order.reject
+  end
+end
+
+Factory.define :order_cancelled_after_sent, :parent => :order_to_be_confirmed do |f|
+  f.after_create do |order|
+    order.cancel
+  end
+end
+
+Factory.define :order_cancelled_after_confirmed, :parent => :order_confirmed do |f|
+  f.after_create do |order|
+    order.cancel
+  end
+end
+
 Factory.define :order_item do |f|
   f.quantity   2
   f.unit_price 10.0

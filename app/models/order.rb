@@ -26,6 +26,35 @@ class Order < ActiveRecord::Base
                         :allow_nil => true
 
 
+  state_machine :status, :initial => :draft do
+    state :draft
+    state :to_be_confirmed
+    state :confirmed
+    state :rejected
+    state :cancelled
+
+    event :finish_draft_and_send do
+      transition :draft => :to_be_confirmed
+    end
+
+    event :confirm do
+      transition :to_be_confirmed => :confirmed
+    end
+
+    event :reject do
+      transition :to_be_confirmed => :rejected
+    end
+
+    event :cancel do
+      transition [:to_be_confirmed, :confirmed] => :cancelled
+    end
+
+    after_transition any => any do |order, transition|
+      order.save
+    end
+  end
+
+
   def payment=(values)
     write_attribute(:payment, values.map{|v| Integer(v) rescue nil}.compact) \
       unless values.nil?
