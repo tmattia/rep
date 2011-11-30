@@ -9,9 +9,17 @@ class OrderItemsController < InheritedResources::Base
       success.html do
         redirect_to params[:commit] == I18n.t('label.order_item.save_and_add_another') ?
           new_order_order_item_path(@order_item.order) :
-          order_path(@order_item.order)
+          parent_url
       end
     end
+  end
+
+  def update
+    update!{ parent_url }
+  end
+
+  def destroy
+    destroy!{ parent_url }
   end
 
   private

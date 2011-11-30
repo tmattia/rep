@@ -1,4 +1,4 @@
-= simple_form_for @order_item, :url => order_order_items_path(@order_item.order), :validate => true do |f|
+= simple_form_for @order_item, :url => @order_item.new_record? ? order_order_items_path(@order_item.order) : order_order_item_path(@order_item.order, @order_item) do |f|
   = f.association :product,
                   :collection => @order_item.order.company.products,
                   :label_method => 'code',
@@ -13,5 +13,6 @@
 
   .ten.columns.alpha.omega
     = f.submit
-    = t 'label.or'
-    = f.submit t('label.order_item.save_and_add_another')
+    - if @order_item.new_record?
+      = t 'label.or'
+      = f.submit t('label.order_item.save_and_add_another')

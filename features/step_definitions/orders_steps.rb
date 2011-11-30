@@ -11,6 +11,10 @@ Dado /^que um pedido existe$/ do
   @order = Factory(:order, :company => @company)
 end
 
+Dado /^que o pedido possui pelo menos um item$/ do
+  @order.order_items << Factory(:order_item, :order => @order)
+end
+
 Dado /^que uma representada existe$/ do
   @company = Factory(:company)
 end
@@ -29,6 +33,11 @@ end
 
 Dado /^que eu estou na página de adicionar um item ao pedido$/ do
   visit(new_order_order_item_path(@order))
+end
+
+Dado /^que eu estou na página de editar um item do pedido$/ do
+  @order_item = @order.order_items.first
+  visit(edit_order_order_item_path(@order, @order_item))
 end
 
 Dado /^que eu estou na página de Pagamento, Comissão e Frete do pedido$/ do
@@ -89,6 +98,10 @@ end
 
 Então /^eu devo ver o pedido$/ do
   current_path.should == order_path(@order)
+end
+
+Então /^eu não devo ver o item$/ do
+  page.should_not have_css("a[href='#{edit_order_order_item_path(@order, @order_item)}']")
 end
 
 Então /^eu devo ver a página de Adicionar Item ao pedido$/ do

@@ -149,6 +149,10 @@ a.button-pill
   @include button(pill)
   text-decoration: none
 
+.button-delete-pill, a.button-delete-pill, input.button-delete-pill
+  @include button(pill, #f00)
+  text-decoration: none
+
 #{$all-text-inputs}, textarea, select
   border: 1px solid #ccc
   color: #555

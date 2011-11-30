@@ -85,6 +85,8 @@ Factory.define :order_item do |f|
 end
 
 Factory.define :invalid_order_item, :class => OrderItem do |f|
+  f.quantity   -1
+  f.unit_price -1
 end
 
 Factory.define :carrier do |f|
