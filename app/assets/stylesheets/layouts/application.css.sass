@@ -237,6 +237,13 @@ input[type="submit"]
       font-size: 85%
       color: #999
 
+.prev-next
+  a
+    @include button(#999)
+    text-decoration: none
+
+    &:last-child
+      float: right
 
 @media screen and (max-width: 767px)
   #auth-bar-bg

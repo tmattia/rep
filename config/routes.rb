@@ -4,6 +4,10 @@ Rep::Application.routes.draw do
     resources :companies, :path => "representadas"
     resources :clients, :path => "clientes"
     resources :orders, :path => "pedidos" do
+      get ':day/:month/:year', :action => 'index', :constraints => {
+        :year => /\d{4}/, :month => /\d{1,2}/, :day => /\d{1,2}/
+      }, :on => :collection, :as => 'date'
+
       resources :order_items, :path => "itens"
     end
     resources :products, :path => "produtos"

@@ -7,6 +7,7 @@
     delete: Excluir
     edit: Editar
     no_records: "Nenhum(a) %{model} cadastrado(a)."
+    no_records_found_for_date: "Nenhum(a) %{model} encontrado(a) para a data %{date}."
     or: 'ou'
     please_check_fields: 'Por favor, verifique se você preencheu todos os campos corretamente.'
     record_data: "Dados Cadastrais"

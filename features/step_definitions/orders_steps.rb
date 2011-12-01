@@ -31,6 +31,10 @@ Dado /^que uma transportadora existe$/ do
   @carrier = Factory(:carrier)
 end
 
+Dado /^que eu estou na página de listar pedidos$/ do
+  visit(orders_path)
+end
+
 Dado /^que eu estou na página de adicionar um item ao pedido$/ do
   visit(new_order_order_item_path(@order))
 end
@@ -96,6 +100,16 @@ Quando /^eu selecionar uma transportadora$/ do
   select_carrier(@carrier.name)
 end
 
+Quando /^eu selecionar uma data que tenha pelo menos um pedido cadastrado$/ do
+  date = Order.first.created_at
+  visit(date_orders_path({:year => date.year, :month => date.month, :day => date.day}))
+end
+
+Quando /^eu selecionar uma data que não tenha pedidos cadastrados$/ do
+  date = Order.first.created_at - 100.years
+  visit(date_orders_path({:year => date.year, :month => date.month, :day => date.day}))
+end
+
 Então /^eu devo ver o pedido$/ do
   current_path.should == order_path(@order)
 end
@@ -114,4 +128,12 @@ end
 
 Então /^eu devo ver os dados do pedido para revisão$/ do
   page.should have_css('table.order')
+end
+
+Então /^eu devo ver uma lista de pedidos$/ do
+  page.should have_css('table.orders')
+end
+
+Então /^eu não devo ver uma lista de pedidos$/ do
+  page.should_not have_css('table.orders')
 end

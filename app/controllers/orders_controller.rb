@@ -1,6 +1,15 @@
 class OrdersController < InheritedResources::Base
 
-  before_filter :add_initial_breadcrumbs, :except => [ :index ]
+  before_filter :add_initial_breadcrumbs
+
+  def index
+    if @date = parse_date_from_params
+      @orders = Order.where('date(created_at) = ?', @date).all
+    else
+      @date = Date.today
+      @orders = Order.all
+    end
+  end
 
   def create
     create! do |success, failure|

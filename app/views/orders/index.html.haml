@@ -1,0 +1,18 @@
+- breadcrumbs.add l(@date), nil, :i18n => false
+
+#main.ten.columns
+  %article
+    %header
+      %h2= t 'label.order.plural'
+      = link_to t('label.add'), new_order_path, :class => 'button-pill'
+
+    - if @orders.length > 0
+      %h3.date= l @date
+      %table.orders
+        - @orders.each do |order|
+          %tr
+            %td= link_to order.id, order
+    - else
+      %p= t 'label.no_records_found_for_date', :model => t('activerecord.models.order'), :date => l(@date)
+
+    = link_to_prev_next_days @date, method(:date_orders_path)

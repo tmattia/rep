@@ -1,6 +1,7 @@
 module ApplicationHelper
 
   include StatesCollectionHelper
+  include DateNavigationHelper
 
   def is_path_to_current_controller path
     actual_path = Rep::Application::routes.recognize_path(path)
