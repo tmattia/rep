@@ -1,9 +1,7 @@
 body
   background-image: url(image_path('bg.jpg'))
 
-#auth-bar-bg
-  background-color: #000
-
+#logo
   h1
     color: #fff
     font-size: 16px
@@ -11,6 +9,12 @@ body
     padding-top: 7px
     font-weight: bold
     margin-bottom: 10px
+
+  a
+    display: none
+
+#auth-bar-bg
+  background-color: #000
 
   #auth-bar
     text-align: right
@@ -35,7 +39,6 @@ body
 
 #header-bg
   background-color: #333
-  margin-bottom: 20px
   padding-top: 10px
 
   #search
@@ -73,6 +76,9 @@ body
             &.current
               background-image: url(image_path('bg.jpg'))
               color: #333
+
+#content-bg
+  margin-top: 10px
 
 #flash
   margin: 5px 0 20px 0
@@ -189,7 +195,6 @@ input[type="submit"]
         clear: both
 
 #breadcrumbs
-  margin: -10px 0 20px 0
   border-bottom: 1px solid #ccc
   padding: 5px
   font-size: 13px
@@ -246,11 +251,26 @@ input[type="submit"]
       float: right
 
 @media screen and (max-width: 767px)
-  #auth-bar-bg
-    h1, ul
-      text-align: center
+  body
+    padding-bottom: 40px
 
-  #header-bg
+  #logo
+    h1
+      font-size: 110%
+      float: left
+      margin-top: 8px
+      margin-bottom: 17px
+
+    a
+      float: right
+      margin-top: 8px
+      @include button(#555)
+      text-decoration: none
+
+  #auth-bar
+    display: none
+
+  #header
     header
       nav
         ul
@@ -268,7 +288,8 @@ input[type="submit"]
               padding: 5px 10px
 
   #search
-    display: none
+    margin-bottom: 20px
+
 
   #content
     margin-top: 10px
@@ -294,6 +315,9 @@ input[type="submit"]
       th
         overflow: hidden
         width: 90px
+
+  .limit-width
+    width: 210px
 
   .numeric_array
     label:not(:first-child)

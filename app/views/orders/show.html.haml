@@ -18,7 +18,7 @@
 
     %section
       %header
-        %h4= t 'label.order.payment_comission_and_freightage'
+        %h4.limit-width= t 'label.order.payment_comission_and_freightage'
         = link_to t('label.edit'), edit_order_path(@order), :class => 'button-pill'
 
       = show_for @order, :id => "order_#{@order.id}_payment_comission_and_freightage" do |o|
@@ -33,7 +33,7 @@
 
     %section
       %header
-        %h3= t 'label.order_item.plural'
+        %h4= t 'label.order_item.plural'
         = link_to t('label.add'), new_order_order_item_path(@order), :class => 'button-pill'
 
       - unless @order.order_items.empty?
