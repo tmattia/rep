@@ -217,6 +217,7 @@ input[type="submit"]
 
     &.order_status
       &.draft
+        border: 1px dashed #ccc
         background-color: #fff
         color: #666
       &.to_be_confirmed
@@ -228,13 +229,19 @@ input[type="submit"]
       &.cancelled
         background-color: #333
 
+.orders
+  td
+    &.label
+      width: 80px
+
+    .company, .client
+      font-size: 85%
+      color: #999
+      font-weight: normal
 
 #order_items
   td
     position: relative
-
-    .color, .total_price
-      font-weight: normal
 
     .quantity
       float: right
@@ -244,6 +251,7 @@ input[type="submit"]
     .color, .total_price
       font-size: 85%
       color: #999
+      font-weight: normal
 
 .prev-next
   a

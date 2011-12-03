@@ -11,7 +11,9 @@
       %table.orders
         - @orders.each do |order|
           %tr
-            %td= link_to order.id, order
+            %td.label
+              %span{:class => "order_status #{order.status}"}= order.human_status
+            %td= link_to_order order
     - else
       %p= t 'label.no_records_found_for_date', :model => t('activerecord.models.order'), :date => l(@date)
 

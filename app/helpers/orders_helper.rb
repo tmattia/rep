@@ -1,5 +1,12 @@
 module OrdersHelper
 
+  def link_to_order order
+    text = "<span class='id'>#{order.id}</span><br>"
+    text << "<span class='company'>#{order.company.name} | </span>"
+    text << "<span class='client'>#{order.client.name}</span>"
+    link_to text.html_safe, order
+  end
+
   def link_to_order_item item
     text = "<span class='quantity'>#{item.quantity}</span> "
     text << "<span class='code'>#{item.product.code}</span><br>"

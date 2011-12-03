@@ -2,6 +2,17 @@ require 'spec_helper'
 
 describe OrdersHelper do
 
+  describe '#link_to_order' do
+    let(:order) { Factory(:order) }
+
+    subject { helper.link_to_order(order) }
+
+    it { should have_css("a[href='#{order_path(order)}']") }
+    it { should have_css("span.id") }
+    it { should have_css("span.client") }
+    it { should have_css("span.company") }
+  end
+
   describe '#link_to_order_item' do
     let(:item) { Factory(:order_item, :color => 'Red') }
 
