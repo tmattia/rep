@@ -1,0 +1,3 @@
+.actions
+  - if @order.status == 'draft'
+    = button_to t('label.order.send'), finish_draft_and_send_order_path(@order), :method => :put, :confirm => t('label.order.confirm_send')

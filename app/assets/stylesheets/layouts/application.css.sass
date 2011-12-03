@@ -1,5 +1,7 @@
 body
   background-image: url(image_path('bg.jpg'))
+  padding-bottom: 40px
+
 
 #logo
   h1
@@ -83,7 +85,7 @@ body
 #content-bg
   margin-top: 10px
 
-#flash
+#flash, .flash
   margin: 5px 0 20px 0
   padding: 10px
   text-align: center
@@ -93,6 +95,11 @@ body
     border: 1px solid #090
     background-color: #efe
     color: #060
+
+  &.warning
+    border: 1px solid #cc0
+    background-color: #ffe
+    color: #aa0
 
   &.error
     border: 1px solid #b00
@@ -197,6 +204,13 @@ input[type="submit"]
       & + *
         clear: both
 
+.actions
+  text-align: center
+
+  input[type='submit']
+    min-width: 50%
+    @include button(shiny)
+
 #breadcrumbs
   border-bottom: 1px solid #ccc
   padding: 5px
@@ -212,6 +226,7 @@ input[type="submit"]
     font-size: 75%
     font-weight: bold
     text-transform: uppercase
+    text-align: center
     padding: 1px 6px
     @include border-radius(3px)
 
@@ -262,9 +277,6 @@ input[type="submit"]
       float: right
 
 @media screen and (max-width: 767px)
-  body
-    padding-bottom: 40px
-
   #logo
     h1
       font-size: 110%

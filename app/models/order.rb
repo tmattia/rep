@@ -34,7 +34,9 @@ class Order < ActiveRecord::Base
     state :cancelled
 
     event :finish_draft_and_send do
-      transition :draft => :to_be_confirmed
+      transition :draft => :to_be_confirmed, :if => lambda { |order|
+        order.valid? and !order.order_items.empty?
+      }
     end
 
     event :confirm do

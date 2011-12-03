@@ -17,8 +17,19 @@ describe Order do
   it { should have_db_column(:created_at) }
 
   describe '#status' do
-    context 'a new order' do
+    context 'an incomplete order draft' do
       subject { Factory(:order) }
+
+      its(:status_name) { should == :draft }
+
+      its(:can_finish_draft_and_send?) { should be_false }
+      its(:can_cancel?)                { should be_false }
+      its(:can_confirm?)               { should be_false }
+      its(:can_reject?)                { should be_false }
+    end
+
+    context 'a complete order draft' do
+      subject { Factory(:order_with_items) }
 
       its(:status_name) { should == :draft }
 

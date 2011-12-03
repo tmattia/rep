@@ -11,6 +11,30 @@ Dado /^que um pedido existe$/ do
   @order = Factory(:order, :company => @company)
 end
 
+Dado /^que um rascunho completo de pedido existe$/ do
+  @order = Factory(:order_with_items)
+end
+
+Dado /^que um rascunho incompleto de pedido existe$/ do
+  @order = Factory(:order)
+end
+
+Dado /^que um pedido aguardando confirmação existe$/ do
+  @order = Factory(:order_to_be_confirmed)
+end
+
+Dado /^que um pedido confirmado existe$/ do
+  @order = Factory(:order_confirmed)
+end
+
+Dado /^que um pedido cancelado existe$/ do
+  @order = Factory(:order_cancelled_after_sent)
+end
+
+Dado /^que um pedido recusado existe$/ do
+  @order = Factory(:order_rejected)
+end
+
 Dado /^que o pedido possui pelo menos um item$/ do
   @order.order_items << Factory(:order_item, :order => @order)
 end
@@ -29,6 +53,10 @@ end
 
 Dado /^que uma transportadora existe$/ do
   @carrier = Factory(:carrier)
+end
+
+Dado /^que eu estou na página do pedido$/ do
+  visit(order_path(@order))
 end
 
 Dado /^que eu estou na página de listar pedidos$/ do
@@ -130,14 +158,46 @@ Então /^eu devo ver a página de Pagamento, Comissão e Frete do pedido$/ do
   current_path.should == payment_comission_and_freightage_order_path(Order.last)
 end
 
-Então /^eu devo ver os dados do pedido para revisão$/ do
-  page.should have_css('table.order')
-end
-
 Então /^eu devo ver uma lista de pedidos$/ do
   page.should have_css('table.orders')
 end
 
 Então /^eu não devo ver uma lista de pedidos$/ do
   page.should_not have_css('table.orders')
+end
+
+Então /^eu devo ver o pedido na situação "([^"]*)"$/ do |status|
+  page.should have_content(status)
+end
+
+Então /^eu devo poder confirmar o pedido$/ do
+  pending
+end
+
+Então /^eu devo poder recusar o pedido$/ do
+  pending
+end
+
+Então /^eu devo poder enviar o pedido$/ do
+  page.should have_css("form[action='#{finish_draft_and_send_order_path(@order)}']")
+end
+
+Então /^eu não devo poder enviar o pedido$/ do
+  page.should_not have_css("form[action='#{finish_draft_and_send_order_path(@order)}']")
+end
+
+Então /^eu devo poder cancelar o pedido$/ do
+  pending
+end
+
+Então /^eu não devo poder cancelar o pedido$/ do
+  pending
+end
+
+Então /^o cliente deve receber o pedido$/ do
+  pending
+end
+
+Então /^a representada deve receber o pedido$/ do
+  pending
 end

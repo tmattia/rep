@@ -18,6 +18,7 @@ describe 'orders/show.html.haml' do
     it { should have_css(".order_#{field}") }
   end
   it { should have_css("a[href='#{new_order_order_item_path(order)}']") }
+  it { should render_template(:partial => '_actions') }
 
 
   context 'when the order has items' do

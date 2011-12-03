@@ -46,9 +46,15 @@ Factory.define :order do |f|
   f.type_of_freight 'CIF'
 end
 
-Factory.define :order_to_be_confirmed, :parent => :order do |f|
+Factory.define :order_with_items, :parent => :order do |f|
   f.after_create do |order|
     order.order_items << Factory(:order_item, :order => order)
+    order.order_items << Factory(:order_item, :order => order)
+  end
+end
+
+Factory.define :order_to_be_confirmed, :parent => :order_with_items do |f|
+  f.after_create do |order|
     order.finish_draft_and_send
   end
 end

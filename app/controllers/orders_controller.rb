@@ -21,6 +21,17 @@ class OrdersController < InheritedResources::Base
     end
   end
 
+  def finish_draft_and_send
+    @order = resource
+    if @order.can_finish_draft_and_send?
+      @order.finish_draft_and_send
+      flash[:notice] = I18n.t('label.order.sent')
+    else
+      flash[:alert] = I18n.t('label.order.cannot_send')
+    end
+    redirect_to @order
+  end
+
   private
   def add_initial_breadcrumbs
     breadcrumbs.add 'label.order.plural', orders_path

@@ -33,12 +33,16 @@
     order:
       plural: Pedidos
       add: Adicionar Pedido
+      cannot_send: O pedido deve estar completo para ser enviado. Por favor, verifique se todos os campos foram preenchidos corretamente.
+      confirm_send: Tem certeza de que deseja enviar o pedido?
       edit: Editar Pedido
       add_items: Adicionar Itens
       add_items_submit: Adicionar Itens »
       payment_comission_and_freightage: Pagamento, Comissão e Frete
       payment_comission_and_freightage_submit: Pagamento, Comissão e Frete »
       search_by_code: Buscar por Código
+      send: Enviar Pedido
+      sent: Pedido Enviado com sucesso.
       status:
         draft: Rascunho
         to_be_confirmed: Aguarda Confirmação
@@ -63,10 +67,10 @@
     actions:
       create:
         notice: "%{resource_name} cadastrado(a) com sucesso."
-        alert: "Ocorreu um erro ao cadastrar %{resource_name}. Por favor, verifique se você preencheu todos os campos corretamente."
+        alert: "Ocorreu um erro ao cadastrar %{resource_name}. Por favor, verifique se todos os campos foram preenchidos corretamente."
       update:
         notice: "%{resource_name} editado(a) com sucesso."
-        alert: "Ocorreu um erro ao editar %{resource_name}. Por favor, verifique se você preencheu todos os campos corretamente."
+        alert: "Ocorreu um erro ao editar %{resource_name}. Por favor, verifique se todos os campos foram preenchidos corretamente."
       destroy:
         notice: "%{resource_name} excluído(a) com sucesso."
         alert: "Não foi possível excluir %{resource_name}."

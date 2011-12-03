@@ -8,6 +8,10 @@ Rep::Application.routes.draw do
         :year => /\d{4}/, :month => /\d{1,2}/, :day => /\d{1,2}/
       }, :on => :collection, :as => 'date'
 
+      member do
+        put 'finish_draft_and_send', :path => 'enviar'
+      end
+
       resources :order_items, :path => "itens"
     end
     resources :products, :path => "produtos"
