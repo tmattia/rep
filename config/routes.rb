@@ -13,6 +13,8 @@ Rep::Application.routes.draw do
     resources :products, :path => "produtos"
   end
 
+  match 'search' => 'search#all', :path => 'buscar'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

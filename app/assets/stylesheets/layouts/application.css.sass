@@ -44,10 +44,13 @@ body
   #search
     text-align: right
 
-    input
+    input[type='search']
       width: 100%
       @include box-sizing(border-box)
       margin-bottom: 0
+
+    input[type='submit']
+      display: none
 
   header
     nav

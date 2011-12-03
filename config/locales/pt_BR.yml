@@ -38,6 +38,7 @@
       add_items_submit: Adicionar Itens »
       payment_comission_and_freightage: Pagamento, Comissão e Frete
       payment_comission_and_freightage_submit: Pagamento, Comissão e Frete »
+      search_by_code: Buscar por Código
       status:
         draft: Rascunho
         to_be_confirmed: Aguarda Confirmação

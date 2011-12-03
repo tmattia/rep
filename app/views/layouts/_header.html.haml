@@ -12,5 +12,6 @@
               %li= link_to_current t('label.client.plural'), clients_path
               %li= link_to_current t('label.product.plural'), products_path
         #search.four.columns.alpha.omega
-          %form
-            %input{:type => :search, :placeholder => t('label.search')}
+          = form_tag search_path, :method => :get do
+            = search_field_tag 'q', nil, :placeholder => t('label.search')
+            = submit_tag

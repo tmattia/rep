@@ -20,6 +20,13 @@ module FormSupport
       :from => field_name(model, field) unless value.nil?
   end
 
+  def search(query)
+    within('#search') do
+      fill_in 'q', :with => query
+      submit
+    end
+  end
+
   def submit
     find('input[type=submit]').click
   end

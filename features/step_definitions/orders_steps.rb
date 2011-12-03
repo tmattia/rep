@@ -110,6 +110,10 @@ Quando /^eu selecionar uma data que não tenha pedidos cadastrados$/ do
   visit(date_orders_path({:year => date.year, :month => date.month, :day => date.day}))
 end
 
+Quando /^eu buscar pelo código do pedido$/ do
+  search("pedido #{@order.id}")
+end
+
 Então /^eu devo ver o pedido$/ do
   current_path.should == order_path(@order)
 end
