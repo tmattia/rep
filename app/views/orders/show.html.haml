@@ -1,6 +1,6 @@
 - breadcrumbs.add @order.id, nil, :i18n => false
 
-#main.ten.columns.alpha
+#main.ten.columns
   %article
     %header
       %h2= "#{t('activerecord.models.order')} #{@order.id}"
@@ -60,4 +60,3 @@
         %tr
           %th= t 'label.order.total'
           %td.price= number_to_currency @order.total_price
-
