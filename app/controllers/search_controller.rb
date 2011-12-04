@@ -15,7 +15,7 @@ class SearchController < ApplicationController
   private
   def validate_terms
     not_found if params[:q].nil?
-    @terms = params[:q].split
+    @terms = params[:q].split.map(&:downcase)
   end
 
 end
