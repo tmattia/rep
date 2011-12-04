@@ -85,7 +85,9 @@ class Order < ActiveRecord::Base
 
 
   def total_price
-    order_items.inject(0){ |sum, i| sum + i.total_price }
+    partial = order_items.inject(0) { |sum, i| sum + i.total_price }
+    discount.each { |d| partial -= partial * d / 100.0 }
+    partial + (partial * interest / 100.0)
   end
 
   def human_total_price

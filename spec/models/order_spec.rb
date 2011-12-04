@@ -219,35 +219,41 @@ describe Order do
   describe 'calculations' do
     context 'when there are order items' do
       before do
-        @order = Factory(:order, :comission => 5.0)
+        @order = Factory(:order,
+                         :comission => 10.0,
+                         :discount => [15, 10],
+                         :interest => 10)
         @order.order_items = [
           Factory(:order_item,
                   :order => @order,
-                  :unit_price => 10.50,
-                  :quantity => 2),
+                  :unit_price => 40.00,
+                  :quantity => 1),
           Factory(:order_item,
                   :order => @order,
                   :unit_price => 5.00,
-                  :quantity => 1)
+                  :quantity => 2)
         ]
       end
 
       describe '#total_price' do
         it 'should calculate total order price' do
-          @order.total_price.should == 26.00
+          @order.total_price.should == 42.075
         end
       end
 
       describe '#total_comission' do
         it 'should calculate total comission' do
-          @order.total_comission.should == 1.3
+          @order.total_comission.should == 4.2075
         end
       end
     end
 
     context 'when there are no order items' do
       before do
-        @order = Factory(:order, :comission => 5.0)
+        @order = Factory(:order,
+                         :comission => 10.0,
+                         :discount => [15, 10],
+                         :interest => 15)
         @order.order_items.each {|i| i.destroy}
         @order.order_items = []
       end
