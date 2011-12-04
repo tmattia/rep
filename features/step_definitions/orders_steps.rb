@@ -171,7 +171,7 @@ Então /^eu devo ver o pedido na situação "([^"]*)"$/ do |status|
 end
 
 Então /^eu devo poder confirmar o pedido$/ do
-  pending
+  page.should have_css("form[action='#{confirm_order_path(@order)}']")
 end
 
 Então /^eu devo poder recusar o pedido$/ do
@@ -191,13 +191,5 @@ Então /^eu devo poder cancelar o pedido$/ do
 end
 
 Então /^eu não devo poder cancelar o pedido$/ do
-  pending
-end
-
-Então /^o cliente deve receber o pedido$/ do
-  pending
-end
-
-Então /^a representada deve receber o pedido$/ do
   pending
 end

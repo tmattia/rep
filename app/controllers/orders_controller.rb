@@ -32,6 +32,17 @@ class OrdersController < InheritedResources::Base
     redirect_to @order
   end
 
+  def confirm
+    @order = resource
+    if @order.can_confirm?
+      @order.confirm
+      flash[:notice] = I18n.t('label.order.confirmed')
+    else
+      flash[:alert] = I18n.t('label.order.cannot_confirm')
+    end
+    redirect_to @order
+  end
+
   private
   def add_initial_breadcrumbs
     breadcrumbs.add 'label.order.plural', orders_path

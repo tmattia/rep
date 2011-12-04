@@ -10,6 +10,7 @@ Rep::Application.routes.draw do
 
       member do
         put 'finish_draft_and_send', :path => 'enviar'
+        put 'confirm', :path => 'confirmar'
       end
 
       resources :order_items, :path => "itens"

@@ -33,7 +33,11 @@
     order:
       plural: Pedidos
       add: Adicionar Pedido
+      cannot_confirm: Não é possível confirmar o recebimento do pedido neste momento.
       cannot_send: O pedido deve estar completo para ser enviado. Por favor, verifique se todos os campos foram preenchidos corretamente.
+      confirm: Confirmar Recebimento do Pedido
+      confirmed: Recebimento de Pedido confirmado com sucesso.
+      confirm_confirm: Tem certeza de que deseja confirmar o recebimento do pedido?
       confirm_send: Tem certeza de que deseja enviar o pedido?
       edit: Editar Pedido
       add_items: Adicionar Itens
@@ -42,7 +46,7 @@
       payment_comission_and_freightage_submit: Pagamento, Comissão e Frete »
       search_by_code: Buscar por Código
       send: Enviar Pedido
-      sent: Pedido Enviado com sucesso.
+      sent: Pedido enviado com sucesso.
       status:
         draft: Rascunho
         to_be_confirmed: Aguarda Confirmação

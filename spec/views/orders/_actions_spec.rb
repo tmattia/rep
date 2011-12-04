@@ -26,6 +26,7 @@ describe 'orders/_actions.html.haml' do
     subject { rendered }
 
     it { should_not have_css("form[action='#{finish_draft_and_send_order_path(order)}']") }
+    it { should have_css("form[action='#{confirm_order_path(order)}']") }
   end
 
 end
