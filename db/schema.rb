@@ -14,10 +14,10 @@
 ActiveRecord::Schema.define(:version => 20111205152835) do
 
   create_table "activities", :force => true do |t|
-    t.string   "type",        :null => false
-    t.string   "target_id",   :null => false
-    t.string   "target_type", :null => false
+    t.string   "activity_type", :null => false
     t.text     "data"
+    t.integer  "target_id"
+    t.string   "target_type"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

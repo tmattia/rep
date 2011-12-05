@@ -5,6 +5,7 @@
     add: Adicionar
     all: Todos
     confirm_delete: "Tem certeza de que deseja excluir este item?"
+    dashboard: Mural
     delete: Excluir
     edit: Editar
     no_records: "Nenhum(a) %{model} cadastrado(a)."
@@ -15,6 +16,11 @@
     search: Buscar
     select: 'Selecione...'
     show: Ver
+
+    activity:
+      recent: Atividades Recentes
+      type:
+        create: cadastrado
 
     carrier:
       plural: Transportadoras
@@ -357,6 +363,8 @@
         format: "%{attribute} %{message}"
 
     attributes:
+      activity:
+        <<: *default_attributes
       carrier:
         <<: *default_attributes
       client:
@@ -371,6 +379,7 @@
         <<: *default_attributes
 
     models:
+      activity: Atividade
       carrier: Transportadora
       client: Cliente
       company: Representada

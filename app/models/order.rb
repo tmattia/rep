@@ -2,6 +2,8 @@ class Order < ActiveRecord::Base
 
   default_scope :order => 'created_at DESC'
 
+  has_many :activities, :as => :target
+
   belongs_to :client
   validates :client_id, :presence => true
 

@@ -1,0 +1,14 @@
+#main.ten.columns
+  %article
+    %header
+      %h2= t 'label.activity.recent'
+
+    - unless @activities.empty?
+      %table.activities
+        - @activities.each do |activity|
+          %tr
+            %th= datetime_label activity.created_at
+            %td= activity_description activity
+    - else
+      %p= no_records_found
+
