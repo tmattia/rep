@@ -1,6 +1,5 @@
 # language: pt
 
-@working
 Funcionalidade: Listar Pedidos por Status
   Para encontrar facilmente os pedidos que não foram enviados ou confirmados
   Como Secretária
