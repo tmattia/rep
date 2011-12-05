@@ -16,4 +16,8 @@ module ApplicationHelper
     end
   end
 
+  def title(title)
+    content_for(:title, title.to_s)
+  end
+
 end
