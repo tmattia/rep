@@ -13,7 +13,7 @@ describe 'clients/show.html.haml' do
 
   it { should have_css("table.client") }
   it { should have_css("a[href='#{edit_client_path(client)}']") }
-  it { should have_css("a[href='#{new_order_path}']") }
+  it { should have_css("a[href='#{new_order_path}?client=#{client.id}']") }
 
   context 'when there are recent orders' do
     before do
