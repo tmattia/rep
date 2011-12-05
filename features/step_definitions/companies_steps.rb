@@ -15,6 +15,7 @@ end
 
 Dado /^que eu estou na página de uma representada$/ do
   company = Factory(:company)
+  company.orders << Factory(:order, :company => company)
   visit(company_path(company))
 end
 

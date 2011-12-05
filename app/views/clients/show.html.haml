@@ -33,4 +33,4 @@
       %h3= t('label.order.recent')
       = link_to t('label.add'), new_order_path, :class => 'button-pill'
 
-    = render 'orders/list', :orders => @client.orders.limit(3).all
+    = render 'orders/list', :orders => @client.orders.limit(3)

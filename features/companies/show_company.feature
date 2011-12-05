@@ -7,4 +7,4 @@ Funcionalidade: Ver Representada
     Cenário: Sucesso
       Dado que eu estou na página de uma representada
       Então eu devo ver os dados da representada
-
+      E eu devo ver uma lista de pedidos recentes
