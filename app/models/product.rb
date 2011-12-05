@@ -1,5 +1,7 @@
 class Product < ActiveRecord::Base
 
+  default_scope :order => 'code ASC'
+
   belongs_to :company
 
   validates :company_id, :presence => true
