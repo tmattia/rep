@@ -191,11 +191,11 @@ Então /^eu não devo poder enviar o pedido$/ do
 end
 
 Então /^eu devo poder cancelar o pedido$/ do
-  pending
+  page.should have_css("form[action='#{cancel_order_path(@order)}']")
 end
 
 Então /^eu não devo poder cancelar o pedido$/ do
-  pending
+  page.should_not have_css("form[action='#{cancel_order_path(@order)}']")
 end
 
 Então /^eu devo ver somente os rascunhos de pedido$/ do

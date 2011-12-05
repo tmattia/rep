@@ -34,9 +34,13 @@
     order:
       plural: Pedidos
       add: Adicionar Pedido
+      cancel: Cancelar Pedido
+      cancelled: Pedido cancelado com sucesso.
+      cannot_cancel: Não é possível cancelar o pedido neste momento.
       cannot_confirm: Não é possível confirmar o recebimento do pedido neste momento.
       cannot_send: O pedido deve estar completo para ser enviado. Por favor, verifique se todos os campos foram preenchidos corretamente.
       confirm: Confirmar Recebimento do Pedido
+      confirm_cancel: Tem certeza de que deseja cancelar o pedido?
       confirmed: Recebimento de Pedido confirmado com sucesso.
       confirm_confirm: Tem certeza de que deseja confirmar o recebimento do pedido?
       confirm_send: Tem certeza de que deseja enviar o pedido?
