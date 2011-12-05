@@ -44,17 +44,6 @@ class OrdersController < InheritedResources::Base
     redirect_to @order
   end
 
-  def cancel
-    @order = resource
-    if @order.can_cancel?
-      @order.cancel
-      flash[:notice] = I18n.t('label.order.cancelled')
-    else
-      flash[:alert] - I18n.t('label.order.cannot_cancel')
-    end
-    redirect_to @order
-  end
-
   private
   def add_initial_breadcrumbs
     breadcrumbs.add 'label.order.plural', orders_path

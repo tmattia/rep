@@ -3,6 +3,3 @@
     = button_to t('label.order.send'), finish_draft_and_send_order_path(@order), :method => :put, :confirm => t('label.order.confirm_send')
   - elsif @order.status == 'to_be_confirmed'
     = button_to t('label.order.confirm'), confirm_order_path(@order), :method => :put, :confirm => t('label.order.confirm_confirm')
-
-  - unless ['draft', 'cancelled', 'rejected'].include?(@order.status)
-    = button_to t('label.order.cancel'), cancel_order_path(@order), :method => :put, :confirm => t('label.order.confirm_cancel'), :class => 'danger'
