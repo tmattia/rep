@@ -1,0 +1,9 @@
+- if orders.length > 0
+  %table.orders
+    - orders.each do |order|
+      %tr
+        %td.label
+          %span{:class => "order_status #{order.status}"}= order.human_status
+        %td= link_to_order order
+- else
+  %p= no_records_found_for_date 'order'

@@ -34,6 +34,8 @@
     order:
       plural: Pedidos
       add: Adicionar Pedido
+      add_items: Adicionar Itens
+      add_items_submit: Adicionar Itens »
       cancel: Cancelar Pedido
       cancelled: Pedido cancelado com sucesso.
       cannot_cancel: Não é possível cancelar o pedido neste momento.
@@ -45,10 +47,9 @@
       confirm_confirm: Tem certeza de que deseja confirmar o recebimento do pedido?
       confirm_send: Tem certeza de que deseja enviar o pedido?
       edit: Editar Pedido
-      add_items: Adicionar Itens
-      add_items_submit: Adicionar Itens »
       payment_comission_and_freightage: Pagamento, Comissão e Frete
       payment_comission_and_freightage_submit: Pagamento, Comissão e Frete »
+      recent: Últimos Pedidos
       search_by_code: Buscar por Código
       send: Enviar Pedido
       sent: Pedido enviado com sucesso.

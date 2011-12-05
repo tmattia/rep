@@ -1,7 +1,7 @@
 - title @client.name
 - breadcrumbs.add @client.name, nil, :i18n => false
 
-#main.ten.columns
+#main.ten.columns.alpha
   %h2= @client.name.blank? ? @client.company_name : @client.name
 
   %article
@@ -26,3 +26,11 @@
       = c.attribute :city
       = c.attribute :state do
         = state_name @client.state
+
+#sidebar.six.columns.omega
+  %section
+    %header
+      %h3= t('label.order.recent')
+      = link_to t('label.add'), new_order_path, :class => 'button-pill'
+
+    = render 'orders/list', :orders => @client.orders.limit(3).all

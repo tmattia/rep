@@ -7,3 +7,4 @@ Funcionalidade: Ver Cliente
     Cenário: Sucesso
       Dado que eu estou na página de um cliente
       Então eu devo ver os dados do cliente
+      E eu devo ver uma lista de pedidos recentes

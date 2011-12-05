@@ -13,5 +13,17 @@ describe 'clients/show.html.haml' do
 
   it { should have_css("table.client") }
   it { should have_css("a[href='#{edit_client_path(client)}']") }
+  it { should have_css("a[href='#{new_order_path}']") }
+
+  context 'when there are recent orders' do
+    before do
+      Factory(:order, :client => client)
+      render
+    end
+
+    subject { rendered }
+
+    it { should have_css('table.orders') }
+  end
 
 end

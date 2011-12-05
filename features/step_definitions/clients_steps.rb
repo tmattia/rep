@@ -15,6 +15,7 @@ end
 
 Dado /^que eu estou na página de um cliente/ do
   client = Factory(:client)
+  client.orders << Factory(:order, :client => client)
   visit(client_path(client))
 end
 
@@ -52,4 +53,8 @@ end
 
 Então /^eu devo ver a lista dos clientes cadastrados$/ do
   page.should have_selector('table.clients')
+end
+
+Então /^eu devo ver uma lista de pedidos recentes$/ do
+  page.should have_css('table.orders')
 end
