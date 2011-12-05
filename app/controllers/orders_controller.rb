@@ -30,41 +30,31 @@ class OrdersController < InheritedResources::Base
   end
 
   def finish_draft_and_send
-    @order = resource
-    if @order.can_finish_draft_and_send?
-      @order.finish_draft_and_send
-      flash[:notice] = I18n.t('label.order.sent')
-    else
-      flash[:alert] = I18n.t('label.order.cannot_send')
-    end
-    redirect_to @order
+    do_action 'finish_draft_and_send', 'sent', 'send'
   end
 
   def confirm
-    @order = resource
-    if @order.can_confirm?
-      @order.confirm
-      flash[:notice] = I18n.t('label.order.confirmed')
-    else
-      flash[:alert] = I18n.t('label.order.cannot_confirm')
-    end
-    redirect_to @order
+    do_action 'confirm', 'confirmed'
   end
 
   def cancel
-    @order = resource
-    if @order.can_cancel?
-      @order.cancel
-      flash[:notice] = I18n.t('label.order.cancelled')
-    else
-      flash[:alert] - I18n.t('label.order.cannot_cancel')
-    end
-    redirect_to @order
+    do_action 'cancel', 'cancelled'
   end
 
   private
   def add_initial_breadcrumbs
     breadcrumbs.add 'label.order.plural', orders_path
+  end
+
+  def do_action action, success=nil, error=nil
+    @order = resource
+    if @order.send("can_#{action}?")
+      @order.send(action)
+      flash[:notice] = I18n.t("label.order.#{success or action}")
+    else
+      flash[:alert] = I18n.t("label.order.cannot_#{error or action}")
+    end
+    redirect_to @order
   end
 
 end
