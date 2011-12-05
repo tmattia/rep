@@ -11,7 +11,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111122191648) do
+ActiveRecord::Schema.define(:version => 20111205152835) do
+
+  create_table "activities", :force => true do |t|
+    t.string   "type",        :null => false
+    t.string   "target_id",   :null => false
+    t.string   "target_type", :null => false
+    t.text     "data"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "carriers", :force => true do |t|
     t.string "name", :null => false
