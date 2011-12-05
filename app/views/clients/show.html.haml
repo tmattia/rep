@@ -31,6 +31,6 @@
   %section
     %header
       %h3= t('label.order.recent')
-      = link_to t('label.add'), new_order_path, :class => 'button-pill'
+      = link_to t('label.add'), {:controller => 'orders', :action => 'new', :client => @client.id}, :class => 'button-pill'
 
     = render 'orders/list', :orders => @client.orders.limit(3)

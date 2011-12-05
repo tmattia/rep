@@ -12,6 +12,13 @@ class OrdersController < InheritedResources::Base
     end
   end
 
+  def new
+    @order = Order.new
+    @order.company = Company.find(params[:company]) if params[:company]
+    @order.client = Client.find(params[:client]) if params[:client]
+    respond_with(@order)
+  end
+
   def create
     create! do |success, failure|
       success.html do
