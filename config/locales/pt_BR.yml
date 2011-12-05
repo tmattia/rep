@@ -3,6 +3,7 @@
 "pt-BR":
   label:
     add: Adicionar
+    all: Todos
     confirm_delete: "Tem certeza de que deseja excluir este item?"
     delete: Excluir
     edit: Editar

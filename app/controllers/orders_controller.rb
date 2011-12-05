@@ -3,11 +3,12 @@ class OrdersController < InheritedResources::Base
   before_filter :add_initial_breadcrumbs
 
   def index
-    if @date = parse_date_from_params
-      @orders = Order.where('date(created_at) = ?', @date).all
+    @date = parse_date_from_params || Date.today
+    if params[:status]
+      @orders = Order.where('date(created_at) = ? AND status = ?',
+                            @date, params[:status]).all
     else
-      @date = Date.today
-      @orders = Order.all
+      @orders = Order.where('date(created_at) = ?', @date).all
     end
   end
 

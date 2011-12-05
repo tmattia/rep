@@ -6,15 +6,19 @@
       %h2= t 'label.order.plural'
       = link_to t('label.add'), new_order_path, :class => 'button-pill'
 
-    - if @orders.length > 0
-      %h3.date= l @date
-      %table.orders
-        - @orders.each do |order|
-          %tr
-            %td.label
-              %span{:class => "order_status #{order.status}"}= order.human_status
-            %td= link_to_order order
-    - else
-      %p= t 'label.no_records_found_for_date', :model => t('activerecord.models.order'), :date => l(@date)
+    %section
+      %header
+        %h3.date= l @date
+        = link_to_statuses @date
+
+      - if @orders.length > 0
+        %table.orders
+          - @orders.each do |order|
+            %tr
+              %td.label
+                %span{:class => "order_status #{order.status}"}= order.human_status
+              %td= link_to_order order
+      - else
+        %p= t 'label.no_records_found_for_date', :model => t('activerecord.models.order'), :date => l(@date)
 
     = link_to_prev_next_days @date, method(:date_orders_path)

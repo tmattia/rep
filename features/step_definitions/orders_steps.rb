@@ -12,27 +12,27 @@ Dado /^que um pedido existe$/ do
 end
 
 Dado /^que um rascunho completo de pedido existe$/ do
-  @order = Factory(:order_with_items)
+  @order = Factory(:order_with_items, :created_at => Date.today)
 end
 
 Dado /^que um rascunho incompleto de pedido existe$/ do
-  @order = Factory(:order)
+  @order = Factory(:order, :created_at => Date.today)
 end
 
 Dado /^que um pedido aguardando confirmação existe$/ do
-  @order = Factory(:order_to_be_confirmed)
+  @order = Factory(:order_to_be_confirmed, :created_at => Date.today)
 end
 
 Dado /^que um pedido confirmado existe$/ do
-  @order = Factory(:order_confirmed)
+  @order = Factory(:order_confirmed, :created_at => Date.today)
 end
 
 Dado /^que um pedido cancelado existe$/ do
-  @order = Factory(:order_cancelled_after_sent)
+  @order = Factory(:order_cancelled_after_sent, :created_at => Date.today)
 end
 
 Dado /^que um pedido recusado existe$/ do
-  @order = Factory(:order_rejected)
+  @order = Factory(:order_rejected, :created_at => Date.today)
 end
 
 Dado /^que o pedido possui pelo menos um item$/ do
@@ -142,6 +142,10 @@ Quando /^eu buscar pelo código do pedido$/ do
   search("pedido #{@order.id}")
 end
 
+Quando /^eu selecionar a situação "([^"]*)"$/ do |status|
+  click_link status
+end
+
 Então /^eu devo ver o pedido$/ do
   current_path.should == order_path(@order)
 end
@@ -192,4 +196,24 @@ end
 
 Então /^eu não devo poder cancelar o pedido$/ do
   pending
+end
+
+Então /^eu devo ver somente os rascunhos de pedido$/ do
+  page.should list_only_orders(:draft)
+end
+
+Então /^eu devo ver somente os pedidos agurdando confirmação$/ do
+  page.should list_only_orders(:to_be_confirmed)
+end
+
+Então /^eu devo ver somente os pedidos confirmados$/ do
+  page.should list_only_orders(:confirmed)
+end
+
+Então /^eu devo ver somente os pedidos cancelados$/ do
+  page.should list_only_orders(:cancelled)
+end
+
+Então /^eu devo ver somente os pedidos recusados/ do
+  page.should list_only_orders(:rejected)
 end

@@ -48,3 +48,7 @@ end
 #     DatabaseCleaner.strategy = :transaction
 #   end
 #
+
+
+# Loading custom matchers and other support methods
+Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}

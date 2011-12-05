@@ -16,6 +16,8 @@ describe 'orders/index.html.haml' do
     it { should have_css("a[href='#{new_order_path}']") }
     it { should have_css('.prev-next a.prev') }
     it { should have_css('.prev-next a.next') }
+
+    it { should have_css("ul.statuses") }
   end
 
   context 'when at least one order exists' do

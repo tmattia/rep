@@ -191,6 +191,7 @@ input[type="submit"]
 #main, #sidebar
   article, section
     header
+      position: relative
       text-align: right
 
       h2, h3, h4
@@ -212,6 +213,92 @@ input[type="submit"]
   input[type='submit']
     min-width: 50%
     @include button(shiny)
+
+h3.date
+  margin: 10px 0 20px 0
+
+.statuses
+  position: absolute
+  right: 0
+  top: 10px
+  display: block
+  text-align: center
+
+  li
+    display: none
+    padding: 3px 8px
+    text-transform: uppercase
+    font-size: 80%
+    font-weight: bold
+    @include border-radius(5px)
+
+    a
+      text-decoration: none
+      color: #fff
+      display: block
+
+    &.all
+      display: block
+      background: #fff
+
+      a
+        color: #333
+
+    &.draft
+      border: 1px dashed #ccc
+      background-color: #fff
+
+      a
+        color: #666
+
+    &.to_be_confirmed
+      background-color: #36c
+
+    &.confirmed
+      background-color: #3a6
+
+    &.rejected
+      background-color: #c33
+
+    &.cancelled
+      background-color: #000
+
+  &.draft
+    li
+      &.all
+        display: none
+      &.draft
+        display: block
+  &.to_be_confirmed
+    li
+      &.all
+        display: none
+      &.to_be_confirmed
+        display: block
+  &.confirmed
+    li
+      &.all
+        display: none
+      &.confirmed
+        display: block
+  &.rejected
+    li
+      &.all
+        display: none
+      &.rejected
+        display: block
+  &.cancelled
+    li
+      &.all
+        display: none
+      &.cancelled
+        display: block
+
+  &:hover
+    li
+      display: block !important
+      margin-bottom: 3px
+
 
 #breadcrumbs
   border-bottom: 1px solid #ccc

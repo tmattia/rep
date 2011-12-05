@@ -40,4 +40,17 @@ describe OrdersHelper do
     it { should have_css("div.label span.order_status.#{order.status}") }
   end
 
+  describe '#link_to_statuses' do
+    let(:date) { Date.today }
+
+    subject { helper.link_to_statuses(date) }
+
+    it { should have_css("ul.statuses li.all a") }
+    it { should have_css("ul.statuses li.draft a") }
+    it { should have_css("ul.statuses li.to_be_confirmed a") }
+    it { should have_css("ul.statuses li.confirmed a") }
+    it { should have_css("ul.statuses li.cancelled a") }
+    it { should have_css("ul.statuses li.rejected a") }
+  end
+
 end
