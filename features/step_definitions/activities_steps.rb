@@ -4,7 +4,11 @@ Quando /^um pedido for cadastrado/ do
   @order = Factory(:order)
 end
 
-Então /^eu devo ver o pedido na lista de atividades$/ do
+Quando /^um pedido for enviado/ do
+  @order = Factory(:order_to_be_confirmed)
+end
+
+Então /^eu devo ver o pedido como "([^"]*)" na lista de atividades$/ do |status|
   visit root_path
-  page.should have_css(".activities a[href='#{order_path(@order)}']")
+  page.should have_content("Pedido #{@order.id} #{status}")
 end

@@ -21,6 +21,7 @@
       recent: Atividades Recentes
       type:
         create: cadastrado
+        finish_draft_and_send: enviado
 
     carrier:
       plural: Transportadoras

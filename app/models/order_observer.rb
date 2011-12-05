@@ -8,4 +8,12 @@ class OrderObserver < ActiveRecord::Observer
     })
   end
 
+  def after_finish_draft_and_send order, transition
+    Activity.create({
+      :activity_type => 'finish_draft_and_send',
+      :target => order,
+      :data => nil
+    })
+  end
+
 end
