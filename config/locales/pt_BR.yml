@@ -20,6 +20,8 @@
     activity:
       recent: Atividades Recentes
       type:
+        cancel: cancelado
+        confirm: confirmado
         create: cadastrado
         finish_draft_and_send: enviado
 

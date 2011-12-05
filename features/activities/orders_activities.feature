@@ -12,3 +12,11 @@ Funcionalidade: Registrar movimentações de pedidos
     Cenário: Pedido enviado
       Quando um pedido for enviado
       Então eu devo ver o pedido como "enviado" na lista de atividades
+
+    Cenário: Pedido confirmado
+      Quando um pedido for confirmado
+      Então eu devo ver o pedido como "confirmado" na lista de atividades
+
+    Cenário: Pedido cancelado
+      Quando um pedido for cancelado
+      Então eu devo ver o pedido como "cancelado" na lista de atividades

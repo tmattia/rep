@@ -16,4 +16,20 @@ class OrderObserver < ActiveRecord::Observer
     })
   end
 
+  def after_confirm order, transition
+    Activity.create({
+      :activity_type => 'confirm',
+      :target => order,
+      :data => nil
+    })
+  end
+
+  def after_cancel order, transition
+    Activity.create({
+      :activity_type => 'cancel',
+      :target => order,
+      :data => nil
+    })
+  end
+
 end

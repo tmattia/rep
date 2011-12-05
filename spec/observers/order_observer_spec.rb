@@ -26,4 +26,27 @@ describe OrderObserver do
     end
   end
 
+  describe '#after_confirm' do
+    it 'should create a new activity' do
+      order = Factory(:order_to_be_confirmed)
+      Activity.should_receive(:create).with({
+        :activity_type => 'confirm',
+        :target => order,
+        :data => anything
+      })
+      order.confirm!
+    end
+  end
+  describe '#after_cancel' do
+    it 'should create a new activity' do
+      order = Factory(:order_confirmed)
+      Activity.should_receive(:create).with({
+        :activity_type => 'cancel',
+        :target => order,
+        :data => anything
+      })
+      order.cancel!
+    end
+  end
+
 end
