@@ -36,3 +36,4 @@ gem "breadcrumbs"
 gem "state_machine"
 
 gem "localtunnel", :group => [:development, :test]
+gem "railroady", :group => [:development, :test]
