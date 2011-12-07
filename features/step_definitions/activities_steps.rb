@@ -26,6 +26,16 @@ Quando /^um cliente for editado$/ do
   @client.save
 end
 
+Quando /^um produto for cadastrado$/ do
+  @product = Factory(:product)
+end
+
+Quando /^um produto for editado$/ do
+  @product = Factory(:product)
+  @product.description = 'Editing description'
+  @product.save
+end
+
 Então /^eu devo ver o pedido como "([^"]*)" na lista de atividades$/ do |status|
   visit root_path
   page.should have_content("Pedido #{@order.id} #{status}")
@@ -34,4 +44,9 @@ end
 Então /^eu devo ver o cliente como "([^"]*)" na lista de atividades$/ do |status|
   visit root_path
   page.should have_content("Cliente #{@client.name} #{status}")
+end
+
+Então /^eu devo ver o produto como "([^"]*)" na lista de atividades$/ do |status|
+  visit root_path
+  page.should have_content("Produto #{@product.code} #{status}")
 end

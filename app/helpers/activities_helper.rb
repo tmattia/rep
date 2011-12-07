@@ -27,11 +27,13 @@ module ActivitiesHelper
 
   def activity_details activity
     case activity.target_type
+    when 'Client'
+      "<span class='city'>#{activity.target.city}</span>".html_safe
     when 'Order'
       "<span class='company'>#{activity.target.company.name} | </span>
        <span class='client'>#{activity.target.client.name}</span>".html_safe
-    when 'Client'
-      "<span class='city'>#{activity.target.city}</span>".html_safe
+    when 'Product'
+      "<span class='company'>#{activity.target.company.name}</span>"
     else
       nil
     end
@@ -39,10 +41,12 @@ module ActivitiesHelper
 
   def activity_target_name activity
     case activity.target_type
-    when 'Order'
-      activity.target.id
     when 'Client'
       activity.target.name
+    when 'Order'
+      activity.target.id
+    when 'Product'
+      activity.target.code
     else
       nil
     end

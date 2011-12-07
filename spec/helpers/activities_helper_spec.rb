@@ -41,6 +41,19 @@ describe ActivitiesHelper do
       it { should have_css("a span.text") }
       it { should have_css("a span.city") }
     end
-  end
 
+    describe 'for a product' do
+      before do
+        @activity = mock_model(Activity)
+        @activity.stub!(:target).and_return(mock_model(Product).as_null_object)
+        @activity.stub!(:activity_type).and_return(anything)
+        @activity.should_receive(:target_type).at_least(:once).and_return('Product')
+      end
+
+      subject { helper.activity_description(@activity) }
+
+      it { should have_css("a span.text") }
+      it { should have_css("a span.company") }
+    end
+  end
 end
