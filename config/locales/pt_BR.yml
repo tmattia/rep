@@ -24,6 +24,7 @@
         confirm: confirmado
         create: cadastrado
         finish_draft_and_send: enviado
+        update: editado
 
     carrier:
       plural: Transportadoras

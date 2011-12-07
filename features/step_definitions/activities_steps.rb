@@ -16,7 +16,22 @@ Quando /^um pedido for cancelado/ do
   @order = Factory(:order_cancelled_after_sent)
 end
 
+Quando /^um cliente for cadastrado$/ do
+  @client = Factory(:client)
+end
+
+Quando /^um cliente for editado$/ do
+  @client = Factory(:client)
+  @client.name = "A unique new name"
+  @client.save
+end
+
 Então /^eu devo ver o pedido como "([^"]*)" na lista de atividades$/ do |status|
   visit root_path
   page.should have_content("Pedido #{@order.id} #{status}")
+end
+
+Então /^eu devo ver o cliente como "([^"]*)" na lista de atividades$/ do |status|
+  visit root_path
+  page.should have_content("Cliente #{@client.name} #{status}")
 end
