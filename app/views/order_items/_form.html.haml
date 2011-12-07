@@ -1,4 +1,4 @@
-= simple_form_for @order_item, :url => @order_item.new_record? ? order_order_items_path(@order_item.order) : order_order_item_path(@order_item.order, @order_item) do |f|
+= simple_form_for @order_item, :url => @order_item.new_record? ? order_order_items_path(@order_item.order) : order_order_item_path(@order_item.order, @order_item), :validate => true do |f|
   = f.association :product,
                   :collection => @order_item.order.company.products,
                   :label_method => 'code',
@@ -7,7 +7,7 @@
   = f.input :color
 
   .five.columns.alpha
-    = f.input :unit_price
+    = f.input :unit_price, :as => :string
   .five.columns.omega
     = f.input :quantity
 
