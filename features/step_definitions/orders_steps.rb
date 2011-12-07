@@ -1,5 +1,9 @@
 # encoding: utf-8
 
+Quando /^eu estou na página do Mural$/ do
+  visit(root_path)
+end
+
 Dado /^que eu estou na página de adicionar pedido$/ do
   @order = Factory.build(:order)
   visit(new_order_path)

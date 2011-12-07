@@ -1,9 +1,10 @@
 - title t('label.dashboard')
 
-#main.ten.columns
+#main.ten.columns.alpha
+  %h2= t 'label.dashboard'
   %article
     %header
-      %h2= t 'label.activity.recent'
+      %h3= t 'label.activity.recent'
 
     - unless @activities.empty?
       %table.activities
@@ -14,3 +15,10 @@
     - else
       %p= no_records_found
 
+#sidebar.six.columns.omega
+  %section
+    %header
+      %h3= t 'label.order.pending'
+      = link_to t('label.add'), new_order_path, :class => 'button-pill'
+
+    = render 'orders/list', :orders => @pending_orders

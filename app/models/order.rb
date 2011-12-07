@@ -2,6 +2,8 @@ class Order < ActiveRecord::Base
 
   default_scope :order => 'created_at DESC'
 
+  scope :pending, where('status IN (?, ?)', :draft, :to_be_confirmed)
+
   has_many :activities, :as => :target
 
   belongs_to :client
