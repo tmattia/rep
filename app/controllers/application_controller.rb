@@ -1,6 +1,8 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
+  respond_to :html, :json, :xml
+
   def parse_date_from_params
     begin
       Date.parse("%s-%s-%s" % [params[:year], params[:month], params[:day]])
