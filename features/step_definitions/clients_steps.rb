@@ -19,6 +19,14 @@ Dado /^que eu estou na página de um cliente/ do
   visit(client_path(client))
 end
 
+Dado /^que eu estou na página de listar clientes$/ do
+  visit(clients_path)
+end
+
+Quando /^eu buscar pelo código do cliente$/ do
+  search("cliente #{@client.id}")
+end
+
 Quando /^eu estou na página de listar clientes/ do
   visit(clients_path)
 end
