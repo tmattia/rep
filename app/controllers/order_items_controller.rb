@@ -2,8 +2,6 @@ class OrderItemsController < InheritedResources::Base
 
   belongs_to :order
 
-  before_filter :add_initial_breadcrumbs, :except => [ :index ]
-
   def create
     create! do |success, failure|
       success.html do
@@ -22,8 +20,4 @@ class OrderItemsController < InheritedResources::Base
     destroy!{ parent_url }
   end
 
-  private
-  def add_initial_breadcrumbs
-    breadcrumbs.add 'label.order.plural', orders_path
-  end
 end

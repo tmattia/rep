@@ -1,6 +1,6 @@
 class OrdersController < InheritedResources::Base
 
-  before_filter :add_initial_breadcrumbs
+  before_filter :add_breadcrumb
 
   def index
     @date = parse_date_from_params || Date.today
@@ -42,10 +42,6 @@ class OrdersController < InheritedResources::Base
   end
 
   private
-  def add_initial_breadcrumbs
-    breadcrumbs.add 'label.order.plural', orders_path
-  end
-
   def do_action action, success=nil, error=nil
     @order = resource
     if @order.send("can_#{action}?")
