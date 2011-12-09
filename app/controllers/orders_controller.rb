@@ -10,6 +10,7 @@ class OrdersController < InheritedResources::Base
     else
       @orders = Order.where('date(created_at) = ?', @date).all
     end
+    respond_with(@orders)
   end
 
   def new
