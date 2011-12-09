@@ -4,9 +4,13 @@ Rep::Application.routes.draw do
     resources :companies, :path => "representadas"
     resources :clients, :path => "clientes"
     resources :orders, :path => "pedidos" do
-      get ':day/:month/:year', :action => 'index', :constraints => {
-        :year => /\d{4}/, :month => /\d{1,2}/, :day => /\d{1,2}/
-      }, :on => :collection, :as => 'date'
+      collection do
+        get ':day/:month/:year', :action => 'index', :constraints => {
+          :year => /\d{4}/, :month => /\d{1,2}/, :day => /\d{1,2}/
+        }, :as => 'date'
+
+        get 'pending', :path => 'pendentes'
+      end
 
       member do
         put 'finish_draft_and_send', :path => 'enviar'

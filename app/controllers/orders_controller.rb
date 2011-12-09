@@ -30,6 +30,11 @@ class OrdersController < InheritedResources::Base
     end
   end
 
+  def pending
+    @orders = Order.pending
+    respond_with(@orders)
+  end
+
   def finish_draft_and_send
     do_action 'finish_draft_and_send', 'sent', 'send'
   end
