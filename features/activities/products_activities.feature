@@ -1,6 +1,5 @@
 # language: pt
 
-@working
 Funcionalidade: Registrar movimentações de produtos
   Para revisar rapidamente o que aconteceu no dia
   Como Representante
