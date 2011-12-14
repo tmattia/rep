@@ -2,6 +2,8 @@ class Client < ActiveRecord::Base
 
   default_scope :order => 'name ASC'
 
+  has_many :activities, :as => :target
+
   has_many :orders
 
   validates :name, :presence => true,

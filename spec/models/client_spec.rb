@@ -2,7 +2,11 @@ require 'spec_helper'
 
 describe Client do
 
-  subject { Factory(:client) }
+  before do
+    first_client = Factory(:client)
+  end
+
+  it { should have_many(:activities) }
 
   it { should have_many(:orders) }
 
