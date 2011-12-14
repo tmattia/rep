@@ -20,4 +20,9 @@ class OrderItemsController < InheritedResources::Base
     destroy!{ parent_url }
   end
 
+  protected
+  def add_breadcrumb
+    breadcrumbs.add 'label.order.plural', orders_path
+  end
+
 end
