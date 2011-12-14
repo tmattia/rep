@@ -66,3 +66,7 @@ end
 Então /^eu devo ver uma lista de pedidos recentes$/ do
   page.should have_css('table.orders')
 end
+
+Então /^eu devo ver um link para ver o cliente no mapa$/ do
+  page.should have_css(".actions a.map")
+end

@@ -16,6 +16,7 @@
     search: Buscar
     select: 'Selecione...'
     show: Ver
+    show_on_map: Ver no Mapa
 
     activity:
       recent: Atividades Recentes

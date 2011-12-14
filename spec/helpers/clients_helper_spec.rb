@@ -26,4 +26,15 @@ describe ClientsHelper do
 
   end
 
+  describe 'link_to_client_map' do
+    before do
+      @client = Factory(:client)
+    end
+
+    subject { link_to_client_map(@client) }
+
+    it { should have_css('a.map') }
+    it { should have_content(t('label.show_on_map')) }
+  end
+
 end

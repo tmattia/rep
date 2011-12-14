@@ -12,4 +12,17 @@ module ClientsHelper
     html
   end
 
+  def link_to_client_map client
+    address = ('%s, %s, %s, %s' % [
+      client.street,
+      client.zip_code,
+      client.city,
+      client.state
+    ]).gsub(/\s/, '+')
+    content_tag :a,
+      I18n.t('label.show_on_map'),
+      :class => 'map external',
+      :href => "http://maps.google.com.br/?ie=UTF8&q=#{address}&z=16&hl=pt-BR"
+  end
+
 end

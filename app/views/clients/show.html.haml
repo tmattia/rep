@@ -27,6 +27,9 @@
       = c.attribute :state do
         = state_name @client.state
 
+    .actions
+      = link_to_client_map @client
+
 #sidebar.six.columns.omega
   %section
     %header
