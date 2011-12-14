@@ -2,7 +2,9 @@ require 'spec_helper'
 
 describe Company do
 
-  subject { Factory(:company) }
+  before do
+    first_company = Factory(:company)
+  end
 
   it { should have_many(:products) }
   it { should have_many(:orders) }
