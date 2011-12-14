@@ -2,7 +2,11 @@ require 'spec_helper'
 
 describe Product do
 
-  subject { Factory(:product) }
+  before do
+    first_product = Factory(:product)
+  end
+
+  it { should have_many(:activities) }
 
   it { should belong_to(:company) }
   it { should validate_presence_of(:company_id) }

@@ -2,6 +2,8 @@ class Product < ActiveRecord::Base
 
   default_scope :order => 'code ASC'
 
+  has_many :activities, :as => :target
+
   belongs_to :company
 
   validates :company_id, :presence => true
